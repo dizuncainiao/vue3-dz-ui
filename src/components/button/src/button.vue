@@ -1,24 +1,27 @@
 <template>
-    <button>{{ props }}</button>
+    <button :class="['bd-button', ]">
+        <slot></slot>
+        <slot name="icon"></slot>
+    </button>
 </template>
 
 <script lang="ts">
 import {defineComponent} from "vue";
 
-defineComponent({
+export default defineComponent({
     name: "button-default",
     props: {
-        msg: String
+        msg: {
+            type: String,
+            default: 'Hello'
+        },
+    },
+    setup() {
+
     }
 })
 </script>
 
 <style scoped lang="less">
-button {
-    color: red;
-
-    &:hover {
-        color: blue;
-    }
-}
+@import "../style/button";
 </style>
