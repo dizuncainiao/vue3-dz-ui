@@ -1,10 +1,18 @@
 <script setup lang="ts">
 import BdButton from '@/components/button/src/button.vue'
-import {reactive, Ref, toRefs, unref} from "vue";
+import {reactive, Ref, toRefs, unref} from "vue"
+import {ButtonType, ButtonSize} from '@/components/button/src/interface'
 
 type ArgType = 'size' | 'type' | 'round' | 'disabled'
 
-const btnConfig = reactive({
+interface BtnConfig {
+    size: ButtonSize
+    type: ButtonType
+    round: boolean
+    disabled: boolean
+}
+
+const btnConfig = reactive<BtnConfig>({
     size: 'default',
     type: 'primary',
     round: true,
@@ -12,14 +20,16 @@ const btnConfig = reactive({
 })
 const configAsRefs = toRefs(btnConfig)
 const {size, type, round, disabled} = configAsRefs
-const setValue = (data: Ref, value: any) => {
+
+function setValue<T, U extends T>(data: Ref<T>, value: U) {
     data.value = value
 }
+
 const setHandler = {
-    size: () => setValue(size, unref(size) === 'default' ? 'small' : 'default'),
-    type: () => setValue(type, unref(type) === 'primary' ? 'default' : 'primary'),
-    round: () => setValue(round, !unref(round)),
-    disabled: () => setValue(disabled, !unref(disabled)),
+    size: () => setValue<ButtonSize, ButtonSize>(size, unref(size) === 'default' ? 'small' : 'default'),
+    type: () => setValue<ButtonType, ButtonType>(type, unref(type) === 'primary' ? 'default' : 'primary'),
+    round: () => setValue<boolean, boolean>(round, !unref(round)),
+    disabled: () => setValue<boolean, boolean>(disabled, !unref(disabled)),
 }
 
 function setConfig(type: ArgType) {
