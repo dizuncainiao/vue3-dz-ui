@@ -1,0 +1,47 @@
+button {
+  border: 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.bd-button {
+  min-width: 80px;
+  height: 40px;
+  padding: 0 26px;
+  line-height: 20px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid transparent;  // todo
+  transition: .3s;
+}
+
+.bd-button-default {
+  border-color: #E1E4E8;
+  color: #646B7A;
+
+  &:hover {
+    background: #F5F7FB;
+    border-color: #E1E4E8;
+  }
+
+  &:active {
+    background: #F5F7FB;
+    border-color: #BCC4D6;
+  }
+}
+
+.bd-button-primary {
+  background: #0056FF;
+  color: #FFFFFF;
+
+
+  &:hover {
+    background: #004DE5;
+  }
+
+  &:active {
+    background: #0046D0;
+  }
+}

@@ -3,7 +3,7 @@ import BdButton from '@/components/button/src/button.vue'
 </script>
 
 <template>
-    <bd-button :msg="222"/>
+    <bd-button>Hello BdSaas</bd-button>
 </template>
 
 <style>

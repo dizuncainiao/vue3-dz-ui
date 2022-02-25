@@ -1,5 +1,3 @@
 type ButtonSize = 'small' | 'default'
 
-export interface ButtonProps {
-  size: ButtonSize
-}
+type ButtonType = 'default' | 'primary'

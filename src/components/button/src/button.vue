@@ -1,23 +1,27 @@
 <template>
-    <button :class="['bd-button', ]">
+    <button :class="buttonClass">
         <slot></slot>
         <slot name="icon"></slot>
     </button>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {defineComponent, computed} from "vue"
 
 export default defineComponent({
     name: "button-default",
     props: {
-        msg: {
+        type: {
             type: String,
-            default: 'Hello'
+            default: 'default'
         },
     },
-    setup() {
-
+    setup(props) {
+        const buttonClass = computed(() => [
+            'bd-button',
+            `bd-button-${props.type}`
+        ])
+        return {buttonClass}
     }
 })
 </script>
