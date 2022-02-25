@@ -47,7 +47,7 @@ export default defineComponent({
             `bd-button-${props.type}`,
             props.disabled && 'bd-button-disabled',
             props.round && 'bd-button-round',
-            props.size && `bd-button-${props.size}`
+            props.size && `bd-button-size-${props.size}`
         ])
         const isDisabled = ref(props.disabled)
         const showPropIcon = computed(() => !slots.icon && props.icon)

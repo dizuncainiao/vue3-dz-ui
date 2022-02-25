@@ -8,9 +8,6 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 80px;
-  height: 40px;
-  padding: 0 26px;
   line-height: 20px;
   border-radius: 4px;
   box-sizing: border-box;
@@ -62,11 +59,20 @@ button {
   border-radius: 24px;
 }
 
-.bd-button-small {
+.bd-button-size-small {
   min-width: 40px;
   height: 24px;
   padding: 0 8px;
-  border-radius: 4px;
+
+  :deep(.iconfont) {
+    padding-left: 10px;
+  }
+}
+
+.bd-button-size-default {
+  min-width: 80px;
+  height: 40px;
+  padding: 0 26px;
 
   :deep(.iconfont) {
     padding-left: 10px;
