@@ -11,12 +11,12 @@ const clickHandler = (e: MouseEvent, msg: string) => {
         type="primary"
         round
         @click="clickHandler($event, 'Hello world!')"
-        icon="icon-jiahao2"
+        icon="icon-icon-test1"
         size="small"
     >
         Hello BdSaas
         <template #icon>
-            <i class="iconfont icon-sousuo"></i>
+            <i class="iconfont icon-icon-test"></i>
         </template>
     </bd-button>
 </template>
