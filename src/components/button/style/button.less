@@ -5,6 +5,9 @@ button {
 }
 
 .bd-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 80px;
   height: 40px;
   padding: 0 26px;
@@ -16,7 +19,7 @@ button {
   border: 1px solid transparent; // fixme
   transition: .3s;
 
-  .iconfont {
+  :deep(.iconfont) {
     padding-left: 10px;
   }
 }
@@ -64,4 +67,8 @@ button {
   height: 24px;
   padding: 0 8px;
   border-radius: 4px;
+
+  :deep(.iconfont) {
+    padding-left: 10px;
+  }
 }

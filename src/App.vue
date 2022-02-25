@@ -12,7 +12,6 @@ const clickHandler = (e: MouseEvent, msg: string) => {
         round
         @click="clickHandler($event, 'Hello world!')"
         icon="icon-icon-test1"
-        size="small"
     >
         Hello BdSaas
         <template #icon>
