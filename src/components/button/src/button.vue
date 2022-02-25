@@ -48,7 +48,8 @@ export default defineComponent({
             'bd-button',
             `bd-button-${props.type}`,
             props.disabled && 'bd-button-disabled',
-            props.round && 'bd-button-round'
+            props.round && 'bd-button-round',
+            props.size && `bd-button-${props.size}`
         ])
         const isDisabled = ref(props.disabled)
         // 判断是否有 icon 插槽
