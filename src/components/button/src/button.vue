@@ -13,7 +13,7 @@ export default defineComponent({
     name: "button-default",
     props: {
         type: {
-            // fixme
+            // fixme 必须使用 PropType 包装的方式才能实现复杂类型检查
             type: String as PropType<ButtonType>,
             default: 'default',
             required: true
