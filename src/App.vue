@@ -1,15 +1,23 @@
 <script setup lang="ts">
 import BdButton from '@/components/button/src/button.vue'
 
-const clickHandler = (e: MouseEvent) => {
-    console.log(e);
+const clickHandler = (e: MouseEvent, msg: string) => {
+    console.log(e, msg);
 }
 </script>
 
 <template>
-    <bd-button type="primary" @click="clickHandler">
+    <bd-button
+        type="primary"
+        round
+        @click="clickHandler($event, 'Hello world!')"
+        icon="icon-jiahao2"
+        size="small"
+    >
         Hello BdSaas
-        <i class="iconfont icon-sousuo"></i>
+        <template #icon>
+            <i class="iconfont icon-sousuo"></i>
+        </template>
     </bd-button>
 </template>
 

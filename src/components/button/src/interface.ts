@@ -1,3 +1,5 @@
-type ButtonSize = 'small' | 'default'
+export type ButtonSize = 'small' | 'default'
 
-type ButtonType = 'default' | 'primary'
+export type ButtonType = 'default' | 'primary'
+
+export type IconType = 'icon-jiahao' | 'icon-sousuo'
