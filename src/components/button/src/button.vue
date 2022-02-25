@@ -1,12 +1,12 @@
 <template>
-    <button :class="buttonClass">
+    <button :class="buttonClass" :disabled="isDisabled">
         <slot></slot>
         <slot name="icon"></slot>
     </button>
 </template>
 
 <script lang="ts">
-import {defineComponent, computed} from "vue"
+import {defineComponent, computed, ref} from "vue"
 
 export default defineComponent({
     name: "button-default",
@@ -15,13 +15,29 @@ export default defineComponent({
             type: String,
             default: 'default'
         },
+        disabled: {
+            type: Boolean,
+            default: false
+        }
     },
-    setup(props) {
+    setup(props, {emit}) {
         const buttonClass = computed(() => [
             'bd-button',
-            `bd-button-${props.type}`
+            `bd-button-${props.type}`,
+            props.disabled && 'bd-button-disabled'
         ])
-        return {buttonClass}
+        const isDisabled = ref(props.disabled)
+
+        function clickHandler(event: MouseEvent) {
+            emit('click', event)
+        }
+
+
+        return {
+            buttonClass,
+            isDisabled,
+            clickHandler
+        }
     }
 })
 </script>

@@ -13,7 +13,7 @@ button {
   box-sizing: border-box;
   cursor: pointer;
   font-size: 14px;
-  border: 1px solid transparent;  // todo
+  border: 1px solid transparent; // todo
   transition: .3s;
 }
 
@@ -27,7 +27,7 @@ button {
   }
 
   &:active {
-    background: #F5F7FB;
+    background: #F5F7FB !important;
     border-color: #BCC4D6;
   }
 }
@@ -42,6 +42,11 @@ button {
   }
 
   &:active {
-    background: #0046D0;
+    background: #0046D0 !important;
   }
+}
+
+.bd-button-disabled {
+  opacity: .4;
+  cursor: not-allowed;
 }
