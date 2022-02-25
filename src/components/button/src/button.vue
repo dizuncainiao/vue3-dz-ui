@@ -3,8 +3,7 @@
         <slot></slot>
         <slot name="icon">
         </slot>
-        <!--fixme iconSlot 代码语义优化-->
-        <i v-if="!iconSlot" :class="iconClass"></i>
+        <i v-if="showPropIcon" :class="iconClass"></i>
     </button>
 </template>
 
@@ -38,8 +37,7 @@ export default defineComponent({
         },
         size: {
             type: String as PropType<ButtonSize>,
-            default: 'default',
-            required: true
+            default: 'default'
         }
     },
     setup(props, {emit, slots}) {
@@ -52,11 +50,10 @@ export default defineComponent({
             props.size && `bd-button-${props.size}`
         ])
         const isDisabled = ref(props.disabled)
-        // 判断是否有 icon 插槽
-        const iconSlot = ref(!!slots.icon)
+        const showPropIcon = computed(() => !slots.icon && props.icon)
         const iconClass = computed(() => [
             'iconfont',
-            !iconSlot.value && icon.value
+            showPropIcon.value && icon.value
         ])
 
         function clickHandler(event: MouseEvent) {
@@ -67,7 +64,7 @@ export default defineComponent({
 
         return {
             iconClass,
-            iconSlot,
+            showPropIcon,
             buttonClass,
             isDisabled,
             clickHandler
