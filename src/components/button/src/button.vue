@@ -40,7 +40,7 @@ export default defineComponent({
             default: 'default'
         }
     },
-    setup(props, {emit, slots}) {
+    setup(props, {slots}) {
         const {icon} = toRefs(props)
         const buttonClass = computed(() => [
             'bd-button',
@@ -56,16 +56,11 @@ export default defineComponent({
             showPropIcon.value && icon.value
         ])
 
-        function clickHandler(event: MouseEvent) {
-            emit('click', event)
-        }
-
         return {
             iconClass,
             showPropIcon,
             buttonClass,
             isDisabled,
-            clickHandler
         }
     }
 })
