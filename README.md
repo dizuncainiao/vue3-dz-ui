@@ -1,4 +1,4 @@
-# 基于 TypeScript + Vue3 + Vite 技术栈开发企业级 UI 组件 Demo
+# 基于 TypeScript + Vue3 + Vite 技术栈开发的 UI 组件 Demo
 
 1. 安装 `TypeScript`
 
