@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BdButton from '@/components/button/src/button.vue'
-import {reactive, Ref, toRefs, unref} from "vue"
+import {Ref, reactive, toRefs, unref} from "vue"
 import {ButtonType, ButtonSize} from '@/components/button/src/interface'
 
 type ArgType = 'size' | 'type' | 'round' | 'disabled'
@@ -11,6 +11,7 @@ interface BtnConfig {
     round: boolean
     disabled: boolean
 }
+
 // fixme 1.reactive 和 ref 区别（reactive 和 ref 都是用来定义响应式数据的 reactive更推荐去定义复杂的数据类型 ref 更推荐定义基本类型）
 const btnConfig = reactive<BtnConfig>({
     size: 'default',
@@ -22,7 +23,7 @@ const btnConfig = reactive<BtnConfig>({
 const configAsRefs = toRefs(btnConfig)
 const {size, type, round, disabled} = configAsRefs
 
-// fixme 3.
+// fixme 3.使用泛型约束只能入我们想要的参数
 function setValue<T, U extends T>(data: Ref<T>, value: U) {
     data.value = value
 }
@@ -35,7 +36,7 @@ const setHandler = {
 }
 
 function setConfig(type: ArgType) {
-    setHandler[type as ArgType]()
+    setHandler[type]()
 }
 </script>
 

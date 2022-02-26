@@ -30,6 +30,7 @@ export default defineComponent({
             default: false
         },
         // fixme 3.规定具名插槽优先于 props
+        // fixme 如何实现同时存在 “具名插槽” 和 “props.icon” 时，优先具名插槽
         icon: {
             // fixme 2.必须启用 required 才能实现 props 类型校验
             type: String as PropType<IconType>,
@@ -59,8 +60,6 @@ export default defineComponent({
         function clickHandler(event: MouseEvent) {
             emit('click', event)
         }
-
-        // fixme 4.如何实现同时存在 “具名插槽” 和 “props.icon” 时，优先具名插槽
 
         return {
             iconClass,
