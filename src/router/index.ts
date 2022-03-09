@@ -4,11 +4,10 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 const routes: Array<RouteRecordRaw> = [
-
   {
     path: '/buttonDemo',
     name: 'ButtonDemo',
-    component: () => import(/* webpackChunkName: "login" */ '@/views/ButtonDemo.vue')
+    component: () => import(/* webpackChunkName: "buttonDemo" */ '@/views/ButtonDemo.vue')
   },
 ]
 
