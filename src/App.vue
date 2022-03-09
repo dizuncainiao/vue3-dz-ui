@@ -1,5 +1,8 @@
 <template>
   <!--todo-1 写一个 tab 组件-->
+  <nav id="nav">
+    <router-link to="/buttonDemo">按钮组件</router-link>
+  </nav>
   <router-view/>
 </template>
 
@@ -14,5 +17,9 @@
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#nav {
+  margin-bottom: 20px;
 }
 </style>
