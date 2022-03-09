@@ -16,7 +16,6 @@ export default defineComponent({
     name: "BdButton",
     props: {
         type: {
-            // fixme 1.必须使用 PropType 包装的方式才能实现复杂类型检查
             type: String as PropType<ButtonType>,
             default: 'default',
             required: true
@@ -29,9 +28,7 @@ export default defineComponent({
             type: Boolean as PropType<boolean>,
             default: false
         },
-        // fixme 3.规定具名插槽优先于 props（如何实现同时存在 “具名插槽” 和 “props.icon” 时，优先具名插槽）
         icon: {
-            // fixme 2.必须启用 required 才能实现编辑器中的 props 类型校验
             type: String as PropType<IconType>,
             // required: true
         },

@@ -50,14 +50,12 @@ interface BtnConfig {
   disabled: boolean
 }
 
-// fixme 1.reactive 和 ref 区别（reactive 和 ref 都是用来定义响应式数据的 reactive更推荐去定义复杂的数据类型 ref 更推荐定义基本类型）
 const btnConfig = reactive<BtnConfig>({
   size: 'default',
   type: 'primary',
   round: true,
   disabled: false
 })
-// fixme 2.当从组合式函数返回响应式对象时，toRefs 非常有用，这样消费组件就可以在不丢失响应性的情况下对返回的对象进行解构/展开
 const configAsRefs = toRefs(btnConfig)
 
 const {size, type, round, disabled} = configAsRefs

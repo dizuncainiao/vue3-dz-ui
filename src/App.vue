@@ -1,10 +1,9 @@
 <template>
-  <component :is="components[0]"/>
+  <!--todo-1 写一个 tab 组件-->
+  <router-view/>
 </template>
 
 <script setup lang="ts">
-import ButtonDemo from '@/views/ButtonDemo.vue'
-const components = [ButtonDemo]
 </script>
 
 <style>
