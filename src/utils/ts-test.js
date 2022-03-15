@@ -1,10 +1,8 @@
-function createArr(length, value) {
-    var arr = [];
-    for (var i = 0; i < length; i++) {
-        arr.push(value);
+"use strict";
+class Person {
+    constructor(name) {
     }
-    return arr;
 }
-var result = createArr(2, '222');
-var foo = result[0];
-console.log(foo.isArray());
+const p2 = { name: 'foo' };
+const p = new Person('foo');
+//# sourceMappingURL=ts-test.js.map
