@@ -11,10 +11,22 @@
     .bd-checkbox__inner {
       background: #0056FF;
       border-color: #0056FF;
+
+      &::before {
+        transform: translate(-50%, -50%) scale3d(.85, .85, .85);
+      }
     }
 
     .bd-checkbox__label {
       color: #0056FF;
+    }
+  }
+
+  &.is-disabled {
+    opacity: .5;
+
+    .bd-checkbox__input, .bd-checkbox__label {
+      cursor: not-allowed;
     }
   }
 
@@ -33,14 +45,19 @@
     background: #FFFFFF;
     border-radius: 2px;
     border: 1px solid #9CA6B9;
-    transition: .3s;
+    transition: .2s;
+    color: #fff;
 
     &:hover {
       border-color: #0056FF;
     }
 
-    &::after {
+    &::before {
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale3d(0, 0, 0);
+      transition: .2s;
     }
   }
 

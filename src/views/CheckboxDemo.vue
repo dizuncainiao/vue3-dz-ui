@@ -1,6 +1,8 @@
 <template>
-    <bd-checkbox v-model="checked">Hello world!</bd-checkbox>
-    <p>{{ checked }}</p>
+    <bd-checkbox v-model="checked" label="Hello world"></bd-checkbox>
+    <br>
+    <bd-checkbox v-model="checked" disabled>Hello world</bd-checkbox>
+    <p>选中状态：{{ checked }}</p>
 </template>
 
 <script lang="ts">

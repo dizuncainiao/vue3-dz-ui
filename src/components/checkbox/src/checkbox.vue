@@ -1,18 +1,21 @@
 <template>
-    <label class="bd-checkbox" :class="modelValue && 'is-checked'">
+    <label class="bd-checkbox" :class="checkboxClass">
         <span class="bd-checkbox__input">
-            <span class="bd-checkbox__inner"></span>
-            <input :checked="modelValue" @change="changeHandler" class="bd-checkbox__original" type="checkbox">
+            <span class="bd-checkbox__inner iconfont icon-duihao"></span>
+            <input :checked="modelValue" :disabled="disabled" @change="changeHandler" class="bd-checkbox__original"
+                   type="checkbox">
         </span>
         <span v-if="$slots.default || label" class="bd-checkbox__label">
             <slot></slot>
-            <template v-if="$slots.default">{{ label }}</template>
+            <template v-if="!$slots.default">{{ label }}</template>
         </span>
     </label>
+
+    <div>disabled：{{ disabled }}</div>
 </template>
 
 <script lang="ts">
-import {defineComponent, toRefs, PropType} from "vue"
+import {defineComponent, toRefs, PropType, computed} from "vue"
 
 export default defineComponent({
     name: "BdCheckbox",
@@ -23,19 +26,28 @@ export default defineComponent({
         modelValue: {
             type: Boolean as PropType<boolean>,
             default: false
+        },
+        disabled: {
+            type: Boolean as PropType<boolean>,
+            default: false
         }
     },
     emits: ['update:modelValue'],
     setup(props, {emit}) {
-        const {modelValue} = toRefs(props)
+        const {modelValue, disabled} = toRefs(props)
 
-        function changeHandler(e: InputEvent) {
-            const {target: {checked}} = e
-            emit('update:modelValue', checked)
+        const checkboxClass = computed(() => [
+            modelValue.value && 'is-checked',
+            disabled.value && 'is-disabled',
+        ])
+
+        function changeHandler(e: Event) {
+            emit('update:modelValue', (e.target as HTMLInputElement).checked)
         }
 
         return {
-            changeHandler
+            changeHandler,
+            checkboxClass
         }
     }
 })
