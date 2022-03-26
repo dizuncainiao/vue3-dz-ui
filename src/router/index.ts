@@ -5,9 +5,18 @@ import 'nprogress/nprogress.css'
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: '/',
+    redirect: '/listDemo'
+  },
+  {
     path: '/buttonDemo',
     name: 'ButtonDemo',
     component: () => import(/* webpackChunkName: "buttonDemo" */ '@/views/ButtonDemo.vue')
+  },
+  {
+    path: '/listDemo',
+    name: 'ListDemo',
+    component: () => import(/* webpackChunkName: "buttonDemo" */ '@/views/ListDemo.vue')
   },
 ]
 

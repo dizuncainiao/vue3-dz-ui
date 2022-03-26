@@ -1,7 +1,8 @@
 <template>
   <!--todo  写一个 tab 组件-->
   <nav id="nav">
-    <router-link to="/buttonDemo">按钮组件</router-link>
+    <router-link to="/buttonDemo">按钮组件</router-link> |
+    <router-link to="/listDemo">列表组件</router-link>
   </nav>
   <router-view/>
 </template>

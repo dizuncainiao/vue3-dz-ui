@@ -21,7 +21,7 @@
     >
       Hello BdSaas（setup）
       <template #icon>
-        <i class="iconfont icon-icon-test"></i>
+        <i class="iconfont icon-icon-test1"></i>
       </template>
     </bd-button-setup>
   </div>
