@@ -1,5 +1,5 @@
 <template>
-    <bd-list :data="listData" :></bd-list>
+    <bd-list :data="listData"></bd-list>
 </template>
 
 <script lang="ts">
