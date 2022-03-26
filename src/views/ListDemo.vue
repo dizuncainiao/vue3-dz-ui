@@ -1,14 +1,14 @@
 <template>
-    <div class="bd-list">
-        表格
-    </div>
+    <bd-list></bd-list>
 </template>
 
-<script>
+<script lang="ts">
 import {ref, defineComponent} from "vue"
+import BdList from "../components/list/src/list.vue";
 
 export default defineComponent({
     name: "ListDemo",
+    components: {BdList},
     setup() {
 
     }
