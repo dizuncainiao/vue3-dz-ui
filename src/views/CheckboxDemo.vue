@@ -7,17 +7,17 @@
 
 <script lang="ts">
 import BdCheckbox from "../components/checkbox/src/checkbox.vue"
-import {ref} from "vue"
+import {ref, defineComponent} from "vue"
 
-export default {
-    name: "ListDemo",
+export default defineComponent({
+    name: "CheckboxDemo",
     components: {BdCheckbox},
     setup() {
         const checked = ref(true)
 
         return {checked}
     }
-}
+})
 </script>
 
 <style scoped>

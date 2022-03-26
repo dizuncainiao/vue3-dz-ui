@@ -16,7 +16,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/checkboxDemo',
     name: 'CheckboxDemo',
-    component: () => import(/* webpackChunkName: "buttonDemo" */ '@/views/CheckboxDemo.vue')
+    component: () => import(/* webpackChunkName: "checkboxDemo" */ '@/views/CheckboxDemo.vue')
+  },
+  {
+    path: '/listDemo',
+    name: 'ListDemo',
+    component: () => import(/* webpackChunkName: "listDemo" */ '@/views/ListDemo.vue')
   },
 ]
 
