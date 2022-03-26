@@ -5,11 +5,22 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, toRefs, PropType, computed} from "vue"
+import {defineComponent, toRefs, computed, PropType} from "vue"
+
+type Data = Record<string, any>
+type TableData = Array<Data>
 
 export default defineComponent({
     name: "BdList",
-    setup() {
+    props: {
+        data: {
+            type: Array as PropType<TableData>,
+            required: true
+        }
+    },
+    setup(props) {
+        const {data} = toRefs(props)
+        console.log(data.value);
     }
 })
 </script>
