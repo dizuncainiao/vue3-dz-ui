@@ -12,9 +12,7 @@
 
   thead {
     tr {
-
       height: 68px;
-      //background: #FFFFFF;
       box-shadow: 0 10px 24px 0 rgba(36, 41, 52, 0.05);
       border-radius: 4px 4px 0 0;
     }
@@ -32,14 +30,17 @@
       font-weight: 400;
       color: #9CA6B9;
       line-height: 14px;
-
     }
   }
 
   tbody {
     tr {
       height: 80px;
-      //background: #FFFFFF;
+      transition: .3s ease-in-out;
+
+      &:hover {
+        box-shadow: 0 0 36px 0 rgba(100, 107, 122, 0.4);
+      }
 
       &:last-child td {
         border-bottom: 1px solid #EDF1F6;
