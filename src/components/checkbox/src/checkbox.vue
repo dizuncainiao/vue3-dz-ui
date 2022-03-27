@@ -10,8 +10,6 @@
             <template v-if="!$slots.default">{{ label }}</template>
         </span>
     </label>
-
-    <div>disabled：{{ disabled }}</div>
 </template>
 
 <script lang="ts">
@@ -32,7 +30,7 @@ export default defineComponent({
             default: false
         }
     },
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'change'],
     setup(props, {emit}) {
         const {modelValue, disabled} = toRefs(props)
 
@@ -43,6 +41,7 @@ export default defineComponent({
 
         function changeHandler(e: Event) {
             emit('update:modelValue', (e.target as HTMLInputElement).checked)
+            emit('change', (e.target as HTMLInputElement).checked)
         }
 
         return {
