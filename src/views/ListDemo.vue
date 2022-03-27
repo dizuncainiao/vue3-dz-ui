@@ -48,7 +48,7 @@ export default defineComponent({
         return {
             ...toRefs(state),
             onSelectChange,
-            selectAllChange: val => {
+            selectAllChange: (val: boolean) => {
                 console.log('全选状态是：', val)
             }
         }

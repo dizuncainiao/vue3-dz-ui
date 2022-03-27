@@ -31,10 +31,9 @@
 
 <script lang="ts">
 import {defineComponent, toRefs, ref, computed, PropType, watchEffect} from "vue"
-import {isEqual} from 'lodash-es'
 import type {TableData, Columns, RowSelection} from "./interface"
 import BdCheckbox from "@/components/checkbox/src/checkbox.vue"
-import {useSetSelectedProp} from "@/components/list/src/listUtil";
+import {useSetSelectedProp, useListSelected} from "@/components/list/src/useListSelected";
 
 export default defineComponent({
     name: "BdList",
@@ -55,34 +54,7 @@ export default defineComponent({
     emits: ['selectAllChange'],
     setup(props, {emit}) {
         const {data, columns, rowSelection} = toRefs(props)
-
-        const allRowKeys = computed(() => data.value.map(item => item.key))
-
-        const selectedRowKeys = ref([])
-
-        const selectedAll = ref(false)
-
-        const selectedRows = computed(() => {
-            data.value.filter(row => row.selected)
-        })
-
-        useSetSelectedProp(data.value, selectedRowKeys.value)
-
-        watchEffect(() => {
-            selectedAll.value = data.value.filter(row => !row.selected).length === 0
-        })
-
-        function selectAllChange(val: boolean) {
-            if (val) {
-                data.value.forEach(row => row.selected = true)
-            } else {
-                data.value.forEach(row => row.selected = false)
-            }
-            rowSelection.value?.onChange(selectedRowKeys.value, selectedRows.value)
-            emit('selectAllChange', val)
-        }
-
-        console.log(allRowKeys);
+        const {selectedAll, selectAllChange} = useListSelected(data.value, rowSelection.value, emit)
 
         return {
             selectedAll,
