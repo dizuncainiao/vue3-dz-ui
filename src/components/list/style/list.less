@@ -35,10 +35,13 @@
 
   tbody {
     tr {
+      position: relative;
       height: 80px;
       transition: .3s ease-in-out;
 
       &:hover {
+        z-index: 2;
+        transform: scale3d(1.2, 1.2, 1.2);
         box-shadow: 0 0 36px 0 rgba(100, 107, 122, 0.4);
       }
 

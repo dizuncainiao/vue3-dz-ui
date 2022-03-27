@@ -34,18 +34,17 @@
 
     <teleport to="body">
 <!--        <div class="tr-focus-mask"-->
-<!--             style="position: fixed; width: 100%; height: 100%;  z-index: 2; background: rgba(0,0,0,.5)"-->
+<!--             style="position: fixed; width: 100%; height: 100%; top: 0; left: 0;  z-index: 1; background: rgba(0,0,0,.5)"-->
 <!--        >-->
-
 <!--        </div>-->
     </teleport>
 </template>
 
 <script lang="ts">
-import {defineComponent, toRefs, ref, computed, PropType, watchEffect} from "vue"
+import {defineComponent, toRefs, PropType} from "vue"
 import type {TableData, Columns, RowSelection} from "./interface"
 import BdCheckbox from "@/components/checkbox/src/checkbox.vue"
-import {useSetSelectedProp, useListSelected} from "@/components/list/src/useListSelected";
+import {useListSelected} from "@/components/list/src/useListSelected";
 
 export default defineComponent({
     name: "BdList",
@@ -69,7 +68,6 @@ export default defineComponent({
         const {selectedAll, selectAllChange} = useListSelected(data.value, rowSelection.value, emit)
 
         function enterHandler(e: MouseEvent) {
-            // document.querySelector('.tr-focus-mask').appendChild(e.target)
             // console.log(e.target);
         }
 
