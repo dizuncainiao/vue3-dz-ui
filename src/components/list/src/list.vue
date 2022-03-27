@@ -12,7 +12,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="row of data" :key="row.key">
+            <tr
+                v-for="row of data"
+                :key="row.key"
+                @mouseenter="enterHandler"
+            >
                 <td v-if="rowSelection">
                     <bd-checkbox v-model="row.selected"></bd-checkbox>
                 </td>
@@ -27,6 +31,14 @@
             </slot>
         </div>
     </div>
+
+    <teleport to="body">
+<!--        <div class="tr-focus-mask"-->
+<!--             style="position: fixed; width: 100%; height: 100%;  z-index: 2; background: rgba(0,0,0,.5)"-->
+<!--        >-->
+
+<!--        </div>-->
+    </teleport>
 </template>
 
 <script lang="ts">
@@ -56,9 +68,15 @@ export default defineComponent({
         const {data, columns, rowSelection} = toRefs(props)
         const {selectedAll, selectAllChange} = useListSelected(data.value, rowSelection.value, emit)
 
+        function enterHandler(e: MouseEvent) {
+            // document.querySelector('.tr-focus-mask').appendChild(e.target)
+            // console.log(e.target);
+        }
+
         return {
             selectedAll,
-            selectAllChange
+            selectAllChange,
+            enterHandler
         }
     }
 })
