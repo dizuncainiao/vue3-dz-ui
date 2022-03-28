@@ -59,7 +59,8 @@ export default defineComponent({
             required: true
         },
         rowSelection: {
-            type: Object as PropType<RowSelection>
+            type: Object as PropType<RowSelection>,
+            default: () => ({})
         }
     },
     emits: ['selectAllChange'],
