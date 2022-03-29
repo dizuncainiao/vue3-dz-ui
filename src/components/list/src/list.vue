@@ -1,10 +1,10 @@
 <template>
-  <div class="bd-list">
+  <div class="dz-list">
     <table>
       <thead>
       <tr>
         <th v-if="rowSelection">
-          <bd-checkbox v-model="selectedAll" @change="selectAllChange"></bd-checkbox>
+          <dz-checkbox v-model="selectedAll" @change="selectAllChange"></dz-checkbox>
         </th>
         <th v-for="(col, index) of columns" :key="index">
           {{ col.title }}
@@ -19,7 +19,7 @@
           @mouseleave="leaveHandler"
       >
         <td v-if="rowSelection">
-          <bd-checkbox v-model="row.selected"></bd-checkbox>
+          <dz-checkbox v-model="row.selected"></dz-checkbox>
         </td>
         <td v-for="(col, index) of columns" :key="index">
           {{ row[col.dataIndex] }}
@@ -43,14 +43,14 @@
 <script lang="ts">
 import {defineComponent, toRefs, PropType} from "vue"
 import type {TableData, Columns, RowSelection} from "./interface"
-import BdCheckbox from "@/components/checkbox/src/checkbox.vue"
+import DzCheckbox from "@/components/checkbox/src/checkbox.vue"
 import {useListSelected} from "./useListSelected"
 import {showFocusMask, enterHandler, leaveHandler} from './useTableRowFocus'
 
 
 export default defineComponent({
-  name: "BdList",
-  components: {BdCheckbox},
+  name: "DzList",
+  components: {DzCheckbox},
   props: {
     data: {
       type: Array as PropType<TableData>,

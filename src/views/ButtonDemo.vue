@@ -1,43 +1,43 @@
 <template>
   <div class="button-box">
-    <bd-button
+    <dz-button
         :size="size"
         :type="type"
         :round="round"
         :disabled="disabled"
         icon="icon-icon-test1"
     >
-      Hello BdSaas
+      Hello World
       <template #icon>
         <i class="iconfont icon-icon-test"></i>
       </template>
-    </bd-button>
-    <bd-button-setup
+    </dz-button>
+    <dz-button-setup
         :size="size"
         :type="type"
         :round="round"
         :disabled="disabled"
         icon="icon-icon-test1"
     >
-      Hello BdSaas（setup）
+      Hello World（setup）
       <template #icon>
         <i class="iconfont icon-icon-test1"></i>
       </template>
-    </bd-button-setup>
+    </dz-button-setup>
   </div>
 
 
   <div class="box">
-    <bd-button type="default" @click="setConfig('size')">设置尺寸</bd-button>
-    <bd-button type="default" @click="setConfig('type')">设置类型</bd-button>
-    <bd-button type="default" @click="setConfig('round')">设置圆角</bd-button>
-    <bd-button type="default" @click="setConfig('disabled')">设置禁用</bd-button>
+    <dz-button type="default" @click="setConfig('size')">设置尺寸</dz-button>
+    <dz-button type="default" @click="setConfig('type')">设置类型</dz-button>
+    <dz-button type="default" @click="setConfig('round')">设置圆角</dz-button>
+    <dz-button type="default" @click="setConfig('disabled')">设置禁用</dz-button>
   </div>
 </template>
 
 <script setup lang="ts">
-import BdButton from '@/components/button/src/button.vue'
-import BdButtonSetup from '@/components/button/src/button-setup.vue'
+import DzButton from '@/components/button/src/button.vue'
+import DzButtonSetup from '@/components/button/src/button-setup.vue'
 import {Ref, reactive, toRefs, unref} from "vue"
 import {ButtonType, ButtonSize} from '@/components/button/src/interface'
 

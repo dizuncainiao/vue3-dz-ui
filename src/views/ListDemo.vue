@@ -1,6 +1,6 @@
 <template>
     <div class="table-box">
-        <bd-list
+        <dz-list
             :data="listData"
             :columns="columns"
             :rowSelection="{
@@ -11,21 +11,21 @@
         >
             <template #footer>
                 <div class="list-footer">
-                    <bd-button type="primary" icon="icon-jiazai_shuaxin">刷新表格</bd-button>
+                    <dz-button type="primary" icon="icon-jiazai_shuaxin">刷新表格</dz-button>
                 </div>
             </template>
-        </bd-list>
+        </dz-list>
     </div>
 </template>
 
 <script lang="ts">
 import {reactive, defineComponent, toRefs} from "vue"
-import BdList from "../components/list/src/list.vue";
-import BdButton from "@/components/button/src/button.vue";
+import DzList from "../components/list/src/list.vue";
+import DzButton from "@/components/button/src/button.vue";
 
 export default defineComponent({
     name: "ListDemo",
-    components: {BdButton, BdList},
+    components: {DzButton, DzList},
     setup() {
         const state = reactive({
             listData: [

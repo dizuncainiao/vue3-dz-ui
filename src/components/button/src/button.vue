@@ -13,7 +13,7 @@ import {ButtonSize, ButtonType, IconType} from "@/components/button/src/interfac
 // import {ComponentOptionsBase} from "@vue/runtime-core"
 
 export default defineComponent({
-    name: "BdButton",
+    name: "DzButton",
     props: {
         type: {
             type: String as PropType<ButtonType>,
@@ -40,11 +40,11 @@ export default defineComponent({
     setup(props, {slots}) {
         const {icon} = toRefs(props)
         const buttonClass = computed(() => [
-            'bd-button',
-            `bd-button-${props.type}`,
-            props.disabled && 'bd-button-disabled',
-            props.round && 'bd-button-round',
-            props.size && `bd-button-size-${props.size}`
+            'dz-button',
+            `dz-button-${props.type}`,
+            props.disabled && 'dz-button-disabled',
+            props.round && 'dz-button-round',
+            props.size && `dz-button-size-${props.size}`
         ])
         const isDisabled = ref(props.disabled)
         const showPropIcon = computed(() => !slots.icon && props.icon)
