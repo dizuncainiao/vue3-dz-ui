@@ -1,11 +1,12 @@
 import {App} from 'vue'
-import button from './button/src/button.vue'
-import buttonSetup from './button/src/button-setup.vue'
+import button from './button'
+import checkbox from './checkbox'
+import list from './list'
 
-const components = [button, buttonSetup]
+const components = [button, checkbox, list]
 
 const install = (app: App) => {
-  components.forEach(component => app.component(component.name, component))
+    components.forEach(component => app.component(component.name, component))
 }
 
 export default install
