@@ -6,7 +6,7 @@ import VueTypeImports from 'vite-plugin-vue-type-imports'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/ts-vue3-components/',
+  base: process.env.NODE_ENV === 'production' ? '/ts-vue3-components/' : '',
   plugins: [
     vue(),
     DefineOptions(),
