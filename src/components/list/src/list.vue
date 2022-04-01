@@ -2,85 +2,91 @@
   <div class="dz-list">
     <table>
       <thead>
-      <tr>
-        <th v-if="rowSelection">
-          <dz-checkbox v-model="selectedAll" @change="selectAllChange"></dz-checkbox>
-        </th>
-        <th v-for="(col, index) of columns" :key="index">
-          {{ col.title }}
-        </th>
-      </tr>
+        <tr>
+          <th v-if="rowSelection">
+            <dz-checkbox
+              v-model="selectedAll"
+              @change="selectAllChange"
+            ></dz-checkbox>
+          </th>
+          <th v-for="(col, index) of columns" :key="index">
+            {{ col.title }}
+          </th>
+        </tr>
       </thead>
       <tbody>
-      <tr
+        <tr
           v-for="row of data"
           :key="row.key"
           @mouseenter="enterHandler"
           @mouseleave="leaveHandler"
-      >
-        <td v-if="rowSelection">
-          <dz-checkbox v-model="row.selected"></dz-checkbox>
-        </td>
-        <td v-for="(col, index) of columns" :key="index">
-          {{ row[col.dataIndex] }}
-        </td>
-      </tr>
+        >
+          <td v-if="rowSelection">
+            <dz-checkbox v-model="row.selected"></dz-checkbox>
+          </td>
+          <td v-for="(col, index) of columns" :key="index">
+            {{ row[col.dataIndex] }}
+          </td>
+        </tr>
       </tbody>
     </table>
     <div class="list-footer">
-      <slot name="footer">
-      </slot>
+      <slot name="footer"> </slot>
     </div>
   </div>
 
   <teleport to="body">
     <transition name="slide-fade">
-      <div v-if="showFocusMask" class="tr-focus-mask"/>
+      <div v-if="showFocusMask" class="tr-focus-mask" />
     </transition>
   </teleport>
 </template>
 
 <script lang="ts">
-import {defineComponent, toRefs, PropType} from "vue"
-import type {TableData, Columns, RowSelection} from "./interface"
-import DzCheckbox from "@/components/checkbox/src/checkbox.vue"
-import {useListSelected} from "./useListSelected"
-import {showFocusMask, enterHandler, leaveHandler} from './useTableRowFocus'
-
+import { defineComponent, toRefs } from 'vue'
+import { useListSelected } from './useListSelected'
+import { showFocusMask, enterHandler, leaveHandler } from './useTableRowFocus'
+import type { PropType } from 'vue'
+import type { TableData, Columns, RowSelection } from './interface'
+import DzCheckbox from '@/components/checkbox/src/checkbox.vue'
 
 export default defineComponent({
-  name: "DzList",
-  components: {DzCheckbox},
+  name: 'DzList',
+  components: { DzCheckbox },
   props: {
     data: {
       type: Array as PropType<TableData>,
-      required: true
+      required: true,
     },
     columns: {
       type: Array as PropType<Columns>,
-      required: true
+      required: true,
     },
     rowSelection: {
       type: Object as PropType<RowSelection>,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   emits: ['selectAllChange'],
-  setup(props, {emit}) {
-    const {data, rowSelection} = toRefs(props)
-    const {selectedAll, selectAllChange} = useListSelected(data.value, rowSelection.value, emit)
+  setup(props, { emit }) {
+    const { data, rowSelection } = toRefs(props)
+    const { selectedAll, selectAllChange } = useListSelected(
+      data.value,
+      rowSelection.value,
+      emit
+    )
 
     return {
       selectedAll,
       selectAllChange,
       showFocusMask,
       enterHandler,
-      leaveHandler
+      leaveHandler,
     }
-  }
+  },
 })
 </script>
 
 <style scoped lang="less">
-@import "../style/list";
+@import '../style/list';
 </style>

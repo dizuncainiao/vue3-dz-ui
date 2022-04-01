@@ -3,10 +3,26 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "cz": "git-cz",
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --max-warnings 0 && pretty-quick --check --branch dev",
+    "lint:fix": "eslint --fix . --ext .vue,.js,.ts,.jsx,.tsx && pretty-quick --branch dev"
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx}": "eslint --fix"
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ],
   "dependencies": {
     "lodash-es": "^4.17.21",
     "nprogress": "^0.2.0",
@@ -19,10 +35,22 @@
     "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^2.2.0",
     "@vue/compiler-sfc": "^3.2.24",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-define-config": "^1.3.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.5.0",
     "less": "^4.1.2",
+    "prettier": "^2.6.1",
     "typescript": "^4.5.4",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
     "unplugin-vue-define-options": "^0.3.1",
     "vite": "^2.8.0",
+    "vite-plugin-eslint": "^1.3.0",
     "vite-plugin-vue-type-imports": "^0.1.3",
     "vue-tsc": "^0.29.8"
   }

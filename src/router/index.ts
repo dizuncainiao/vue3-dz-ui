@@ -1,33 +1,37 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import NProgress from 'nprogress'
+import type { RouteRecordRaw } from 'vue-router'
 import 'nprogress/nprogress.css'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/listDemo'
+    redirect: '/listDemo',
   },
   {
     path: '/buttonDemo',
     name: 'ButtonDemo',
-    component: () => import(/* webpackChunkName: "buttonDemo" */ '@/views/ButtonDemo.vue')
+    component: () =>
+      import(/* webpackChunkName: "buttonDemo" */ '@/views/ButtonDemo.vue'),
   },
   {
     path: '/checkboxDemo',
     name: 'CheckboxDemo',
-    component: () => import(/* webpackChunkName: "checkboxDemo" */ '@/views/CheckboxDemo.vue')
+    component: () =>
+      import(/* webpackChunkName: "checkboxDemo" */ '@/views/CheckboxDemo.vue'),
   },
   {
     path: '/listDemo',
     name: 'ListDemo',
-    component: () => import(/* webpackChunkName: "listDemo" */ '@/views/ListDemo.vue')
+    component: () =>
+      import(/* webpackChunkName: "listDemo" */ '@/views/ListDemo.vue'),
   },
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
 })
 
 router.beforeEach(() => {

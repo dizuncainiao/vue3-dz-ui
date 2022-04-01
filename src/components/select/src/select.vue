@@ -1,30 +1,28 @@
 <template>
-  <div class="dz-select">
-
-  </div>
+  <div class="dz-select"></div>
 </template>
 
 <script lang="ts">
-import {defineComponent, toRefs, PropType, computed} from "vue"
+import { defineComponent, toRefs, computed } from 'vue'
+import type { PropType } from 'vue'
 
 export default defineComponent({
-  name: "DzCheckbox",
+  name: 'DzCheckbox',
   props: {
     modelValue: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: false
-    }
+      default: false,
+    },
   },
   emits: ['update:modelValue', 'change'],
-  setup(props, {emit}) {
-  }
+  setup(props, { emit }) {},
 })
 </script>
 
 <style scoped lang="less">
-@import "../style/select";
+@import '../style/select';
 </style>

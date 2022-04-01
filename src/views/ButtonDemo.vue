@@ -1,11 +1,11 @@
 <template>
   <div class="button-box">
     <dz-button
-        :size="size"
-        :type="type"
-        :round="round"
-        :disabled="disabled"
-        icon="icon-icon-test1"
+      :size="size"
+      :type="type"
+      :round="round"
+      :disabled="disabled"
+      icon="icon-icon-test1"
     >
       Hello World
       <template #icon>
@@ -13,11 +13,11 @@
       </template>
     </dz-button>
     <dz-button-setup
-        :size="size"
-        :type="type"
-        :round="round"
-        :disabled="disabled"
-        icon="icon-icon-test1"
+      :size="size"
+      :type="type"
+      :round="round"
+      :disabled="disabled"
+      icon="icon-icon-test1"
     >
       Hello World（setup）
       <template #icon>
@@ -26,20 +26,22 @@
     </dz-button-setup>
   </div>
 
-
   <div class="box">
     <dz-button type="default" @click="setConfig('size')">设置尺寸</dz-button>
     <dz-button type="default" @click="setConfig('type')">设置类型</dz-button>
     <dz-button type="default" @click="setConfig('round')">设置圆角</dz-button>
-    <dz-button type="default" @click="setConfig('disabled')">设置禁用</dz-button>
+    <dz-button type="default" @click="setConfig('disabled')"
+      >设置禁用</dz-button
+    >
   </div>
 </template>
 
 <script setup lang="ts">
+import { reactive, toRefs, unref } from 'vue'
+import type { Ref } from 'vue'
+import type { ButtonType, ButtonSize } from '@/components/button/src/interface'
 import DzButton from '@/components/button/src/button.vue'
 import DzButtonSetup from '@/components/button/src/button-setup.vue'
-import {Ref, reactive, toRefs, unref} from "vue"
-import {ButtonType, ButtonSize} from '@/components/button/src/interface'
 
 type ArgType = 'size' | 'type' | 'round' | 'disabled'
 
@@ -54,11 +56,11 @@ const btnConfig = reactive<BtnConfig>({
   size: 'default',
   type: 'primary',
   round: true,
-  disabled: false
+  disabled: false,
 })
 const configAsRefs = toRefs(btnConfig)
 
-const {size, type, round, disabled} = configAsRefs
+const { size, type, round, disabled } = configAsRefs
 
 // fixme 3.使用泛型约束只能入我们想要的参数
 function setValue<T, U extends T>(data: Ref<T>, value: U) {
@@ -66,8 +68,16 @@ function setValue<T, U extends T>(data: Ref<T>, value: U) {
 }
 
 const setHandler = {
-  size: () => setValue<ButtonSize, ButtonSize>(size, unref(size) === 'default' ? 'small' : 'default'),
-  type: () => setValue<ButtonType, ButtonType>(type, unref(type) === 'primary' ? 'default' : 'primary'),
+  size: () =>
+    setValue<ButtonSize, ButtonSize>(
+      size,
+      unref(size) === 'default' ? 'small' : 'default'
+    ),
+  type: () =>
+    setValue<ButtonType, ButtonType>(
+      type,
+      unref(type) === 'primary' ? 'default' : 'primary'
+    ),
   round: () => setValue<boolean, boolean>(round, !unref(round)),
   disabled: () => setValue<boolean, boolean>(disabled, !unref(disabled)),
 }

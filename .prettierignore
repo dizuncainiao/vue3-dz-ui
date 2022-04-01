@@ -4,3 +4,5 @@ coverage
 CHANGELOG.en-US.md
 pnpm-lock.yaml
 docs/components.d.ts
+.vscode
+.idea
