@@ -7,13 +7,13 @@
         selectedRowKeys: selectedRowKeys,
         onChange: onSelectChange,
       }"
-      @selectAllChange="selectAllChange"
+      @select-all-change="selectAllChange"
     >
       <template #footer>
         <div class="list-footer">
           <dz-button type="primary" icon="icon-jiazai_shuaxin"
-            >刷新表格</dz-button
-          >
+            >刷新表格
+          </dz-button>
         </div>
       </template>
     </dz-list>

@@ -8,7 +8,7 @@ let timer: number | null = null
 export function enterHandler(e: MouseEvent) {
   timer = window.setInterval(() => {
     focusTime.value++
-    console.log(focusTime.value)
+    // console.log(focusTime.value)
     if (focusTime.value === FOCUS_TIME) {
       clearInterval(timer as number)
       ;(e.target as HTMLTableRowElement).classList.add('focused')
@@ -23,5 +23,5 @@ export function leaveHandler(e: MouseEvent) {
   ;(e.target as HTMLTableRowElement).classList.remove('focused')
   showFocusMask.value = false
   focusTime.value = 0
-  console.log(focusTime.value)
+  // console.log(focusTime.value)
 }

@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, computed } from 'vue'
+import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 
 export default defineComponent({
@@ -19,7 +19,9 @@ export default defineComponent({
     },
   },
   emits: ['update:modelValue', 'change'],
-  setup(props, { emit }) {},
+  setup() {
+    return {}
+  },
 })
 </script>
 

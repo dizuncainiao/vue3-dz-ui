@@ -1,7 +1,7 @@
 <template>
   <button :class="buttonClass" :disabled="isDisabled">
     <slot></slot>
-    <slot name="icon"> </slot>
+    <slot name="icon"></slot>
     <i v-if="showPropIcon" :class="iconClass"></i>
   </button>
 </template>
@@ -9,6 +9,10 @@
 <script setup lang="ts">
 import { toRefs, ref, useSlots, computed } from 'vue'
 import type { Props } from '@/components/button/src/interface'
+
+export default {
+  name: 'DzButtonSetup',
+}
 
 const slots = useSlots()
 
