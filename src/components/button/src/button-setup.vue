@@ -9,9 +9,6 @@
 <script setup lang="ts">
 import { toRefs, ref, useSlots, computed } from 'vue'
 import type { Props } from '@/components/button/src/interface'
-export default {
-  name: 'DzButtonSetup',
-}
 
 const slots = useSlots()
 
