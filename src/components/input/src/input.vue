@@ -2,8 +2,8 @@
   <div class="dz-input">
     <input
         class="el-input__inner error"
-        :type="type"
         placeholder="请输入"
+        :type="type"
         :value="modelValue"
         :class="inputClass"
         :readonly="readonly"
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, toRefs, computed, ref} from 'vue'
+import {defineComponent, toRefs, computed, ref, onMounted} from 'vue'
 import type {PropType} from 'vue'
 
 type InputType = 'text' | 'search'
@@ -40,16 +40,19 @@ export default defineComponent({
     type: {
       type: String as PropType<InputType>,
       default: 'text'
+    },
+    isError: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     }
   },
   emits: ['update:modelValue', 'change', 'focus', 'blur'],
   setup(props, {emit, expose}) {
-    const {readonly, disabled, type} = toRefs(props)
-    const isError = ref(false)
+    const {readonly, disabled, type, isError} = toRefs(props)
     const isSearch = computed(() => type.value === 'search')
 
     const inputClass = computed(() => [
-      (readonly?.value || disabled?.value) && 'is-disabled',
+      (readonly.value || disabled.value) && 'is-disabled',
       isError.value && 'is-error',
       isSearch.value && 'is-search'
     ])
@@ -65,8 +68,6 @@ export default defineComponent({
     function blurHandler(e: KeyboardEvent) {
       emit('blur', e)
     }
-
-    document.body.onkeydown
 
     return {
       inputClass,

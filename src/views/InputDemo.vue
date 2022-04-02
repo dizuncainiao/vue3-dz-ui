@@ -1,20 +1,28 @@
 <template>
-  <div>
-    搜索框：<dz-input v-model="msg" type="search"></dz-input>
-  </div>
   <p>msg 的值：{{ msg }}</p>
   <div>
-    普通框：<dz-input v-model="msg"></dz-input>
+    搜索框：
+    <dz-input v-model="msg" type="search"></dz-input>
   </div>
-  <p>msg 的值：{{ msg }}</p>
+  <hr>
   <div>
-    禁用框：<dz-input v-model="msg" disabled></dz-input>
+    普通框：
+    <dz-input v-model="msg"></dz-input>
   </div>
-  <p>msg 的值：{{ msg }}</p>
+  <hr>
+  <div>
+    禁用框：
+    <dz-input v-model="msg" disabled></dz-input>
+  </div>
+  <hr>
+  <div>
+    报错框：
+    <dz-input v-model="msg" is-error></dz-input>
+  </div>
 </template>
 
 <script lang="ts">
-import {ref, defineComponent} from 'vue'
+import {ref, defineComponent, onMounted} from 'vue'
 import DzInput from "@/components/input/src/input.vue";
 
 export default defineComponent({
