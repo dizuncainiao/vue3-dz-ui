@@ -5,6 +5,8 @@
     <router-link to="/checkboxDemo">复选框组件</router-link>
     |
     <router-link to="/listDemo">列表组件</router-link>
+    |
+    <router-link to="/inputDemo">输入框组件</router-link>
   </nav>
   <router-view />
 </template>
