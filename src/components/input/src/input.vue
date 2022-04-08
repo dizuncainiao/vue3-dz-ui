@@ -57,15 +57,15 @@ export default defineComponent({
       isSearch.value && 'is-search',
     ])
 
-    function changeHandler(e: KeyboardEvent) {
+    function changeHandler(e: Event): void {
       emit('update:modelValue', (e.target as HTMLInputElement).value)
     }
 
-    function focusHandler(e: KeyboardEvent) {
+    function focusHandler(e: Event): void {
       emit('focus', e)
     }
 
-    function blurHandler(e: KeyboardEvent) {
+    function blurHandler(e: Event): void {
       emit('blur', e)
     }
 

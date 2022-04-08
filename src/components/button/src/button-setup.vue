@@ -5,14 +5,14 @@
     <i v-if="showPropIcon" :class="iconClass"></i>
   </button>
 </template>
-<script lang="ts"></script>
-<script setup lang="ts">
-import { toRefs, ref, useSlots, computed } from 'vue'
-import type { Props } from '@/components/button/src/interface'
-
+<script lang="ts">
 export default {
   name: 'DzButtonSetup',
 }
+</script>
+<script setup lang="ts">
+import { toRefs, ref, useSlots, computed } from 'vue'
+import type { Props } from '@/components/button/src/interface'
 
 const slots = useSlots()
 
