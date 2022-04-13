@@ -43,11 +43,11 @@
 </template>
 
 <script lang="ts">
+import type {PropType, SetupContext} from 'vue'
+import type {TableData, Columns, RowSelection} from './interface'
 import {defineComponent, toRefs, onBeforeUnmount} from 'vue'
 import {useListSelected} from './useListSelected'
 import {showFocusMask, enterHandler, leaveHandler} from './useTableRowFocus'
-import type {PropType} from 'vue'
-import type {TableData, Columns, RowSelection} from './interface'
 import DzCheckbox from '@/components/checkbox/src/checkbox.vue'
 
 export default defineComponent({
@@ -68,7 +68,7 @@ export default defineComponent({
     },
   },
   emits: ['selectAllChange'],
-  setup(props, {emit}) {
+  setup(props, {emit}: SetupContext) {
     const {data, rowSelection} = toRefs(props)
     const {selectedAll, selectAllChange} = useListSelected(
         data.value,
