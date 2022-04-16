@@ -1,13 +1,17 @@
 <template>
-  <div class="dz-select"></div>
+  <div class="dz-select">
+    <dz-input v-model="value" readonly type="search"/>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
+import {defineComponent, reactive, toRefs} from 'vue'
+import type {PropType} from 'vue'
+import DzInput from "@/components/input/src/input.vue";
 
 export default defineComponent({
-  name: 'DzCheckbox',
+  name: 'DzSelect',
+  components: {DzInput},
   props: {
     modelValue: {
       type: Boolean as PropType<boolean>,
@@ -20,7 +24,12 @@ export default defineComponent({
   },
   emits: ['update:modelValue', 'change'],
   setup() {
-    return {}
+    const state = reactive({
+      value: ''
+    })
+    return {
+      ...toRefs(state)
+    }
   },
 })
 </script>
