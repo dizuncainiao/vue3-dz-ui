@@ -5,11 +5,6 @@
     <i v-if="showPropIcon" :class="iconClass"></i>
   </button>
 </template>
-<script lang="ts">
-export default {
-  name: 'DzButtonSetup',
-}
-</script>
 <script setup lang="ts">
 import { toRefs, ref, useSlots, computed } from 'vue'
 import type { Props } from '@/components/button/src/interface'
@@ -37,6 +32,12 @@ const isDisabled = ref(props.disabled)
 const showPropIcon = computed(() => !slots.icon && props.icon)
 
 const iconClass = computed(() => ['iconfont', showPropIcon.value && icon.value])
+</script>
+
+<script lang="ts">
+export default {
+  name: 'DzButtonSetup',
+}
 </script>
 
 <style scoped lang="less">
