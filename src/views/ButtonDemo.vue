@@ -17,7 +17,7 @@
         :type="type"
         :round="round"
         :disabled="disabled"
-        :asyncHandler="getUser()"
+        :asyncHandler="getUser"
         icon="icon-icon-test1"
     >
       Hello World（setup）
