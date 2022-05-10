@@ -16,9 +16,14 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   round: false,
   size: 'default',
+  asyncHandler: null
 })
 
-const { icon } = toRefs(props)
+const { icon, asyncHandler } = toRefs(props)
+
+asyncHandler.value!.finally(() => {
+  console.log('我在这里处理 loading 隐藏逻辑！')
+})
 
 const buttonClass = computed(() => [
   'dz-button',
