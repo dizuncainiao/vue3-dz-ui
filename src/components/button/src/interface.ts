@@ -14,5 +14,4 @@ export interface Props {
   round: boolean
   icon: IconType
   size: ButtonSize
-  asyncHandler: Promise<unknown> | null
 }

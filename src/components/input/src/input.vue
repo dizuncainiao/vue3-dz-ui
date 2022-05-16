@@ -11,8 +11,9 @@
       @input="changeHandler"
       @focus="focusHandler"
       @blur="blurHandler"
+      @keydown.enter="query"
     />
-    <div class="suffix" @click="blurHandler">
+    <div class="suffix" @click="query">
       <i v-if="isSearch" class="iconfont icon-icon-test"></i>
       <slot v-else name="suffix"></slot>
     </div>
@@ -61,10 +62,6 @@ export default defineComponent({
       isSearch.value && 'is-search',
     ])
 
-    onMounted(() => {
-      console.log(slots.suffix, 'line 62')
-    })
-
     function changeHandler(e: Event): void {
       emit('update:modelValue', (e.target as HTMLInputElement).value)
     }
@@ -78,12 +75,17 @@ export default defineComponent({
       emit('change', e)
     }
 
+    function query() {
+      emit('change', props.modelValue)
+    }
+
     return {
       inputClass,
       isSearch,
       changeHandler,
       focusHandler,
       blurHandler,
+      query,
     }
   },
 })

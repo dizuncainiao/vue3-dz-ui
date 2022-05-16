@@ -11,8 +11,8 @@
   </div>
   <hr />
   <div>
-    普通框（插槽）：
-    <dz-input v-model="msg">
+    插槽框：
+    <dz-input v-model="msg" @change="changeHandler">
       <template #suffix>
         <i class="iconfont icon-xiajiantou"></i>
       </template>
@@ -50,7 +50,11 @@ export default defineComponent({
   setup() {
     const msg = ref('Hello world!')
 
-    return { msg }
+    function changeHandler(val: any) {
+      console.log(val, 'line 54')
+    }
+
+    return { msg, changeHandler }
   },
 })
 </script>
