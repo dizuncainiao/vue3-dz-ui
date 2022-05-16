@@ -12,7 +12,7 @@
       @focus="focusHandler"
       @blur="blurHandler"
     />
-    <div class="suffix">
+    <div class="suffix" @click="blurHandler">
       <i v-if="isSearch" class="iconfont icon-icon-test"></i>
       <slot v-else name="suffix"></slot>
     </div>
@@ -75,6 +75,7 @@ export default defineComponent({
 
     function blurHandler(e: Event): void {
       emit('blur', e)
+      emit('change', e)
     }
 
     return {
