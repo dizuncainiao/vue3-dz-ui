@@ -17,7 +17,6 @@
         :type="type"
         :round="round"
         :disabled="disabled"
-        :asyncHandler="getUser"
         icon="icon-icon-test1"
     >
       Hello World（setup）
@@ -86,12 +85,6 @@ const setHandler = {
 
 function setConfig(type: ArgType) {
   setHandler[type]()
-}
-
-function getUser() {
-  return new Promise(resolve => {
-    setTimeout(() => resolve('foo'), 5000)
-  }).then(res => console.log(res))
 }
 </script>
 
