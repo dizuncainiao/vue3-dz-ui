@@ -5,7 +5,7 @@
 - [X] Button 组件
 - [X] Checkbox 组件
 - [X] List 组件
-- [X] Input 组件
+- [X] Input 组件（PS：结合 suffix 插槽的自定义重写 Input 组件）
 - [ ] Select 组件
 - [ ] Radio 组件
 - [ ] Tab 组件
