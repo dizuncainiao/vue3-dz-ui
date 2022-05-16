@@ -7,7 +7,7 @@ import 'nprogress/nprogress.css'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/listDemo',
+    redirect: '/selectDemo',
   },
   {
     path: '/buttonDemo',

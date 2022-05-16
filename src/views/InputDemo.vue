@@ -11,8 +11,18 @@
   </div>
   <hr />
   <div>
+    密码框：
+    <dz-input v-model="msg" type="password"></dz-input>
+  </div>
+  <hr />
+  <div>
     禁用框：
     <dz-input v-model="msg" disabled></dz-input>
+  </div>
+  <hr />
+  <div>
+    只读框：
+    <dz-input v-model="msg" readonly></dz-input>
   </div>
   <hr />
   <div>

@@ -52,7 +52,8 @@ export default defineComponent({
     const isSearch = computed(() => type.value === 'search')
 
     const inputClass = computed(() => [
-      (readonly.value || disabled.value) && 'is-disabled',
+      disabled.value && 'is-disabled',
+      readonly.value && 'is-readonly',
       isError.value && 'is-error',
       isSearch.value && 'is-search',
     ])

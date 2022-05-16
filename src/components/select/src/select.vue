@@ -1,6 +1,6 @@
 <template>
   <div class="dz-select">
-    <dz-input v-model="value" readonly type="search" />
+    <dz-input v-model="value" readonly type="search" @blur="blurHandler" />
   </div>
 </template>
 
@@ -27,8 +27,14 @@ export default defineComponent({
     const state = reactive({
       value: '',
     })
+
+    function blurHandler(e: any) {
+      console.log(e)
+    }
+
     return {
       ...toRefs(state),
+      blurHandler,
     }
   },
 })
