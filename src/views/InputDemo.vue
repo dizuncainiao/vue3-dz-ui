@@ -11,6 +11,15 @@
   </div>
   <hr />
   <div>
+    普通框（插槽）：
+    <dz-input v-model="msg">
+      <template #suffix>
+        <i class="iconfont icon-xiajiantou"></i>
+      </template>
+    </dz-input>
+  </div>
+  <hr />
+  <div>
     密码框：
     <dz-input v-model="msg" type="password"></dz-input>
   </div>

@@ -12,12 +12,15 @@
       @focus="focusHandler"
       @blur="blurHandler"
     />
-    <i v-if="isSearch" class="iconfont icon-icon-test"></i>
+    <div class="suffix">
+      <i v-if="isSearch" class="iconfont icon-icon-test"></i>
+      <slot v-else name="suffix"></slot>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, computed } from 'vue'
+import { defineComponent, toRefs, onMounted, computed } from 'vue'
 import type { PropType } from 'vue'
 
 type InputType = 'text' | 'search'
@@ -47,7 +50,7 @@ export default defineComponent({
     },
   },
   emits: ['update:modelValue', 'change', 'focus', 'blur'],
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
     const { readonly, disabled, type, isError } = toRefs(props)
     const isSearch = computed(() => type.value === 'search')
 
@@ -57,6 +60,10 @@ export default defineComponent({
       isError.value && 'is-error',
       isSearch.value && 'is-search',
     ])
+
+    onMounted(() => {
+      console.log(slots.suffix, 'line 62')
+    })
 
     function changeHandler(e: Event): void {
       emit('update:modelValue', (e.target as HTMLInputElement).value)
