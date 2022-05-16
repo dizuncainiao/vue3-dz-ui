@@ -1,6 +1,10 @@
 <template>
   <div class="dz-select">
-    <dz-input v-model="value" readonly type="search" @blur="blurHandler" />
+    <dz-input v-model="value" readonly @blur="blurHandler">
+      <template #suffix>
+        <i class="iconfont icon-xiajiantou"></i>
+      </template>
+    </dz-input>
   </div>
 </template>
 
@@ -29,7 +33,7 @@ export default defineComponent({
     })
 
     function blurHandler(e: any) {
-      console.log(e)
+      console.log(e, 'line 36')
     }
 
     return {
