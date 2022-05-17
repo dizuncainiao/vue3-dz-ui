@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, onMounted, computed } from 'vue'
+import { defineComponent, toRefs, computed } from 'vue'
 import type { PropType } from 'vue'
 
 type InputType = 'text' | 'search'
@@ -51,7 +51,7 @@ export default defineComponent({
     },
   },
   emits: ['update:modelValue', 'change', 'focus', 'blur'],
-  setup(props, { emit, slots }) {
+  setup(props, { emit }) {
     const { readonly, disabled, type, isError } = toRefs(props)
     const isSearch = computed(() => type.value === 'search')
 
