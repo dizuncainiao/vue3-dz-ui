@@ -1,5 +1,5 @@
 <template>
-  <dz-select></dz-select>
+  <dz-select @visible-change="getVisible"></dz-select>
   <p>选中状态：{{ selected }}</p>
 </template>
 
@@ -13,7 +13,14 @@ export default defineComponent({
   setup() {
     const selected = ref('')
 
-    return { selected }
+    function getVisible(val: any) {
+      console.log('visible', val)
+    }
+
+    return {
+      selected,
+      getVisible,
+    }
   },
 })
 </script>

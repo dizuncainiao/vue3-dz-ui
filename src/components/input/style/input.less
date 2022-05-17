@@ -60,7 +60,12 @@
     right: 12px;
     transform: translate3d(0, -50%, 0);
     font-size: 18px;
+    transition: .3s ease-in-out;
     cursor: pointer;
+    &.rotate {
+      transform: translate3d(0, -50%, 0) rotate(180deg);
+      transform-origin: center center;
+    }
   }
 
   .iconfont {

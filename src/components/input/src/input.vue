@@ -1,6 +1,7 @@
 <template>
   <div class="dz-input">
     <input
+      ref="input"
       class="el-input__inner error"
       placeholder="请输入"
       :type="type"
@@ -13,7 +14,7 @@
       @blur="blurHandler"
       @keydown.enter="query"
     />
-    <div class="suffix" @click="query">
+    <div :class="suffixClass" @click="query">
       <i v-if="isSearch" class="iconfont icon-icon-test"></i>
       <slot v-else name="suffix"></slot>
     </div>
@@ -21,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, computed } from 'vue'
+import { defineComponent, toRefs, computed, ref } from 'vue'
 import type { PropType } from 'vue'
 
 type InputType = 'text' | 'search'
@@ -49,17 +50,31 @@ export default defineComponent({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    // 是否用在 Select 组件中
+    isSelect: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
   },
   emits: ['update:modelValue', 'change', 'focus', 'blur'],
-  setup(props, { emit }) {
-    const { readonly, disabled, type, isError } = toRefs(props)
+  setup(props, { emit, expose }) {
+    const { readonly, disabled, type, isError, isSelect } = toRefs(props)
     const isSearch = computed(() => type.value === 'search')
+    const input = ref<null | HTMLInputElement>(null)
+    const hasRotate = ref(false)
 
     const inputClass = computed(() => [
       disabled.value && 'is-disabled',
       readonly.value && 'is-readonly',
       isError.value && 'is-error',
       isSearch.value && 'is-search',
+      isSelect.value && 'is-select',
+    ])
+
+    const suffixClass = computed(() => [
+      'suffix',
+      isSelect.value && 'no-event',
+      hasRotate.value && 'rotate',
     ])
 
     function changeHandler(e: Event): void {
@@ -76,11 +91,23 @@ export default defineComponent({
     }
 
     function query() {
-      emit('change', props.modelValue)
+      if (isSelect.value) {
+        ;(input.value as HTMLInputElement).focus()
+      } else {
+        emit('change', props.modelValue)
+      }
     }
 
+    function setRotate(value: boolean) {
+      hasRotate.value = value
+    }
+
+    expose({ setRotate })
+
     return {
+      input,
       inputClass,
+      suffixClass,
       isSearch,
       changeHandler,
       focusHandler,
@@ -91,6 +118,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 @import '../style/input';
 </style>

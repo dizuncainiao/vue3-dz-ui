@@ -1,6 +1,13 @@
 <template>
   <div class="dz-select">
-    <dz-input v-model="value" readonly @blur="blurHandler">
+    <dz-input
+      ref="input"
+      v-model="value"
+      readonly
+      is-select
+      @focus="focusHandler"
+      @blur="blurHandler"
+    >
       <template #suffix>
         <i class="iconfont icon-xiajiantou"></i>
       </template>
@@ -9,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from 'vue'
+import { defineComponent, reactive, ref, toRefs } from 'vue'
 import type { PropType } from 'vue'
 import DzInput from '@/components/input/src/input.vue'
 
@@ -26,24 +33,34 @@ export default defineComponent({
       default: false,
     },
   },
-  emits: ['update:modelValue', 'change'],
-  setup() {
+  emits: ['update:modelValue', 'change', 'visible-change'],
+  setup(props, { emit }) {
     const state = reactive({
       value: '',
+      visible: false,
     })
+    const input = ref(null)
 
-    function blurHandler(e: any) {
-      console.log(e, 'line 36')
+    function focusHandler() {
+      ;(input.value as any).setRotate(true)
+      emit('visible-change', (state.visible = true))
+    }
+
+    function blurHandler() {
+      ;(input.value as any).setRotate(false)
+      emit('visible-change', (state.visible = false))
     }
 
     return {
       ...toRefs(state),
+      input,
       blurHandler,
+      focusHandler,
     }
   },
 })
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 @import '../style/select';
 </style>

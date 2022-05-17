@@ -1,9 +1,9 @@
 .dz-select {
-  //https://github.com/vuejs/rfcs/blob/master/active-rfcs/0023-scoped-styles-changes.md#deep-selectors
-  ::v-deep(.dz-input) {
-    input {
+  .dz-input {
+    input.is-readonly {
       // todo 点击下箭头，input 聚焦
       cursor: pointer;
+      background: #fff;
     }
   }
 }

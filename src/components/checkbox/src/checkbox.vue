@@ -58,6 +58,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 @import '../style/checkbox';
 </style>
