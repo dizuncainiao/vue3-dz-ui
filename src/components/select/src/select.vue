@@ -12,6 +12,13 @@
         <i class="iconfont icon-xiajiantou"></i>
       </template>
     </dz-input>
+    <transition name="zoom-in-top">
+      <div v-show="visible" class="dz-select-dropdown">
+        <ul class="dz-select-dropdown-list">
+          <li></li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 
