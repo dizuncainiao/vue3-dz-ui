@@ -6,18 +6,29 @@
     @visible-change="getVisible"
   />
   <p>选中的值：{{ selected }}</p>
+  <dz-select v-model="selected2" @visible-change="getVisible">
+    <dz-option
+      v-for="(item, index) of options"
+      :key="index"
+      :label="item.label"
+      :value="item.value"
+    />
+  </dz-select>
+  <p>选中的值：{{ selected2 }}</p>
 </template>
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue'
 import type { Options } from '@/components/select/src/interface'
 import DzSelect from '@/components/select/src/select.vue'
+import DzOption from '@/components/select/src/Option.vue'
 
 export default defineComponent({
   name: 'SelectDemo',
-  components: { DzSelect },
+  components: { DzOption, DzSelect },
   setup() {
     const selected = ref('1')
+    const selected2 = ref('1')
 
     const options = ref<Options>([
       { value: '1', label: '选项一' },
@@ -37,6 +48,7 @@ export default defineComponent({
     return {
       visible,
       selected,
+      selected2,
       options,
       getVisible,
     }

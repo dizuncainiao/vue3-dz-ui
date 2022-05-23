@@ -25,6 +25,7 @@
   ],
   "dependencies": {
     "animate.css": "^4.1.1",
+    "dz-emitter": "^1.0.3",
     "lodash-es": "^4.17.21",
     "nprogress": "^0.2.0",
     "vite-plugin-vuedoc": "^3.1.3",

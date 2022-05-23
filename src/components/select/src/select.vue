@@ -2,7 +2,7 @@
   <div class="dz-select" @click.stop="showDropdown">
     <dz-input
       ref="input"
-      v-model="value"
+      v-model="label"
       readonly
       is-select
       @focus="focusHandler"
@@ -15,14 +15,17 @@
     <transition name="zoom-in-top">
       <div v-show="visible" class="dz-select-dropdown">
         <ul class="dz-select-dropdown-list">
-          <li
-            v-for="(item, index) of $props.options"
-            :key="index"
-            :class="item.label === value && 'selected'"
-            @click="selectHandler(item)"
-          >
-            {{ item.label }}
-          </li>
+          <template v-if="!$slots.default">
+            <li
+              v-for="(item, index) of $props.options"
+              :key="index"
+              :class="[item.label === label && 'selected', 'dz-select-option']"
+              @click="selectHandler(item)"
+            >
+              {{ item.label }}
+            </li>
+          </template>
+          <slot v-else></slot>
         </ul>
       </div>
     </transition>
@@ -32,17 +35,17 @@
 <script lang="ts">
 import {
   defineComponent,
+  onBeforeUnmount,
+  onMounted,
   reactive,
   ref,
   toRefs,
   watch,
-  onMounted,
-  onBeforeUnmount,
 } from 'vue'
 import { getLabel } from './interface'
-import type { OptionsItem, Options } from './interface'
 import type { PropType } from 'vue'
-import { addEvent, removeEvent } from '@/utils'
+import type { Options, OptionsItem } from './interface'
+import { addEvent, provideMore, removeEvent } from '@/utils'
 import DzInput from '@/components/input/src/input.vue'
 
 export default defineComponent({
@@ -65,7 +68,7 @@ export default defineComponent({
   emits: ['update:modelValue', 'change', 'focus', 'blur', 'visible-change'],
   setup(props, { emit }) {
     const state = reactive({
-      value: getLabel(props.options, props.modelValue) || '',
+      label: getLabel(props.options, props.modelValue) || '',
       visible: false,
     })
     const input = ref(null)
@@ -84,7 +87,8 @@ export default defineComponent({
     )
 
     function selectHandler(item: OptionsItem) {
-      state.value = item.label
+      // console.log('trigger')
+      state.label = item.label
       emit('update:modelValue', item.value)
     }
 
@@ -99,6 +103,14 @@ export default defineComponent({
     function blurHandler(e: Event) {
       emit('blur', e)
     }
+
+    // console.log(state.label, 'line 11111')
+    // console.log(slots.default, 'line 2222222')
+
+    provideMore({
+      selectHandler,
+      selectedValue: props.modelValue,
+    })
 
     return {
       ...toRefs(state),
