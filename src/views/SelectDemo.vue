@@ -18,10 +18,10 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import type { Options } from '@/components/select/src/interface'
 import DzSelect from '@/components/select/src/select.vue'
-import DzOption from '@/components/select/src/Option.vue'
+import DzOption from '@/components/select/src/option.vue'
 
 export default defineComponent({
   name: 'SelectDemo',

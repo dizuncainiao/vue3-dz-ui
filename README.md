@@ -6,7 +6,7 @@
 - [x] Checkbox 组件
 - [x] List 组件
 - [x] Input 组件
-- [x] Select 组件（TODO: 插槽式的下拉选项开发）
+- [x] Select 组件
 - [ ] Radio 组件
 - [ ] Tab 组件
 - [ ] Tag 组件
