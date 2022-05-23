@@ -5,8 +5,6 @@ export type OptionsItem = {
 
 export type Options = Array<OptionsItem>
 
-export type SelectHandlerFn = (payload: OptionsItem) => void
-
 export function getLabel(
   options: Options,
   value: OptionsItem['value']
