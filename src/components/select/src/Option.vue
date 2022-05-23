@@ -12,6 +12,7 @@ import { defineComponent, toRefs } from 'vue'
 import type { PropType } from 'vue'
 import type { OptionsItem } from './interface'
 import { injectMore } from '@/utils'
+import emitter from '@/plugins/emitter'
 
 export default defineComponent({
   name: 'DzOption',
@@ -37,26 +38,17 @@ export default defineComponent({
         label: label.value,
         value: value.value,
       })
-
-      console.log(
-        `label:${label.value}`,
-        `value:${value.value}`,
-        `selectedValue:${selectedValue.value}`,
-        'line 333'
-      )
     }
     const clickHandler = () => {
-      console.log(
-        `label:${label.value}`,
-        `value:${value.value}`,
-        `selectedValue:${selectedValue.value}`,
-        'line 333'
-      )
       selectHandler.value({
         label: label.value,
         value: value.value,
       })
     }
+
+    emitter.on('getSelectedValue', (value) => {
+      selectedValue.value = value
+    })
 
     return { clickHandler, selectedValue }
   },

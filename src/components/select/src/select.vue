@@ -47,6 +47,7 @@ import type { PropType } from 'vue'
 import type { Options, OptionsItem } from './interface'
 import { addEvent, provideMore, removeEvent } from '@/utils'
 import DzInput from '@/components/input/src/input.vue'
+import emitter from '@/plugins/emitter'
 
 export default defineComponent({
   name: 'DzSelect',
@@ -87,9 +88,9 @@ export default defineComponent({
     )
 
     function selectHandler(item: OptionsItem) {
-      // console.log('trigger')
       state.label = item.label
       emit('update:modelValue', item.value)
+      emitter.emit('getSelectedValue', item.value)
     }
 
     function showDropdown() {
@@ -103,9 +104,6 @@ export default defineComponent({
     function blurHandler(e: Event) {
       emit('blur', e)
     }
-
-    // console.log(state.label, 'line 11111')
-    // console.log(slots.default, 'line 2222222')
 
     provideMore({
       selectHandler,
