@@ -19,7 +19,10 @@
             <li
               v-for="(item, index) of $props.options"
               :key="index"
-              :class="[item.label === label && 'selected', 'dz-select-option']"
+              :class="[
+                item.value === $props.modelValue && 'selected',
+                'dz-select-option',
+              ]"
               @click="selectHandler(item)"
             >
               {{ item.label }}
