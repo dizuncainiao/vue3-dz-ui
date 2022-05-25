@@ -25,7 +25,7 @@
 import { computed, defineComponent, ref, toRefs } from 'vue'
 import type { PropType } from 'vue'
 
-type InputType = 'text' | 'search'
+type InputType = 'text' | 'search' | 'password'
 
 export default defineComponent({
   name: 'DzInput',
