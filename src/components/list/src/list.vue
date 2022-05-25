@@ -25,7 +25,9 @@
             <dz-checkbox v-model="row.selected"></dz-checkbox>
           </td>
           <td v-for="(col, index) of columns" :key="index">
-            {{ row[col.dataIndex] }}
+            <slot name="bodyCell" :column="col.dataIndex" :record="row">
+              {{ row[col.dataIndex] }}
+            </slot>
           </td>
         </tr>
       </tbody>
