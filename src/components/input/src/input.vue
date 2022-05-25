@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, computed, ref } from 'vue'
+import { computed, defineComponent, ref, toRefs } from 'vue'
 import type { PropType } from 'vue'
 
 type InputType = 'text' | 'search'
@@ -57,7 +57,7 @@ export default defineComponent({
     },
   },
   emits: ['update:modelValue', 'change', 'focus', 'blur'],
-  setup(props, { emit, expose }) {
+  setup(props, { emit, expose, slots }) {
     const { readonly, disabled, type, isError, isSelect } = toRefs(props)
     const isSearch = computed(() => type.value === 'search')
     const input = ref<null | HTMLInputElement>(null)
@@ -67,8 +67,9 @@ export default defineComponent({
       disabled.value && 'is-disabled',
       readonly.value && 'is-readonly',
       isError.value && 'is-error',
-      isSearch.value && 'is-search',
+      isSearch.value && 'is-suffix',
       isSelect.value && 'is-select',
+      slots.suffix && 'is-suffix',
     ])
 
     const suffixClass = computed(() => [
