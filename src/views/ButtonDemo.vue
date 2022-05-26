@@ -34,12 +34,16 @@
       >设置禁用
     </dz-button>
   </div>
+  <hr />
+  <h3>单元测试组件</h3>
+  <hello-test :count="4" />
 </template>
 
 <script setup lang="ts">
 import { reactive, toRefs, unref } from 'vue'
+import HelloTest from '../../test/Hello.vue'
 import type { Ref } from 'vue'
-import type { ButtonType, ButtonSize } from '@/components/button/src/interface'
+import type { ButtonSize, ButtonType } from '@/components/button/src/interface'
 import DzButton from '@/components/button/src/button.vue'
 import DzButtonSetup from '@/components/button/src/button-setup.vue'
 
