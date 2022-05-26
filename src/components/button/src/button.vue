@@ -1,8 +1,9 @@
 <template>
   <button :class="buttonClass" :disabled="$props.disabled">
     <slot></slot>
-    <slot name="icon"> </slot>
-    <i v-if="showPropIcon" :class="iconClass"></i>
+    <slot name="icon">
+      <i :class="iconClass"></i>
+    </slot>
   </button>
 </template>
 
@@ -58,7 +59,6 @@ export default defineComponent({
 
     return {
       iconClass,
-      showPropIcon,
       buttonClass,
     }
   },
