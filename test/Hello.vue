@@ -12,5 +12,5 @@ defineExpose(props)
 
 <template>
   <div>{{ count }} x {{ times }} = {{ result }}</div>
-  <dz-button type="primary" @click="times += 1">times: {{ times }}</dz-button>
+  <dz-button type="default" @click="times += 1">times: {{ times }}</dz-button>
 </template>
