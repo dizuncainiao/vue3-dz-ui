@@ -1,6 +1,7 @@
 export type OptionsItem = {
   label: string
   value: any
+  [propName: string]: any
 }
 
 export type Options = Array<OptionsItem>
