@@ -1,5 +1,5 @@
 <template>
-  <button :class="buttonClass" :disabled="isDisabled">
+  <button :class="buttonClass" :disabled="$props.disabled">
     <slot></slot>
     <slot name="icon"> </slot>
     <i v-if="showPropIcon" :class="iconClass"></i>
@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, ref, computed } from 'vue'
+import { defineComponent, toRefs, computed } from 'vue'
 import type { PropType } from 'vue'
 import type {
   ButtonSize,
@@ -50,7 +50,6 @@ export default defineComponent({
       props.round && 'dz-button-round',
       props.size && `dz-button-size-${props.size}`,
     ])
-    const isDisabled = ref(props.disabled)
     const showPropIcon = computed(() => !slots.icon && props.icon)
     const iconClass = computed(() => [
       'iconfont',
@@ -61,7 +60,6 @@ export default defineComponent({
       iconClass,
       showPropIcon,
       buttonClass,
-      isDisabled,
     }
   },
 })

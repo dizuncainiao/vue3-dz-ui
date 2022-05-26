@@ -6,6 +6,7 @@
       :round="round"
       :disabled="disabled"
       icon="icon-icon-test1"
+      @click="btnHandler"
     >
       Hello World
       <template #icon>
@@ -88,6 +89,10 @@ const setHandler = {
 
 function setConfig(type: ArgType) {
   setHandler[type]()
+}
+
+function btnHandler() {
+  console.log(999)
 }
 </script>
 
