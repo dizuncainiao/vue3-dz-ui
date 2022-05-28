@@ -23,7 +23,6 @@ export default defineComponent({
     type: {
       type: String as PropType<ButtonType>,
       default: 'default',
-      required: true,
     },
     disabled: {
       type: Boolean as PropType<boolean>,
