@@ -7,7 +7,7 @@ import 'nprogress/nprogress.css'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/listDemo',
+    redirect: '/testPinia',
   },
   {
     path: '/buttonDemo',
@@ -37,7 +37,15 @@ const routes: Array<RouteRecordRaw> = [
     path: '/selectDemo',
     name: 'SelectDemo',
     component: () =>
-      import(/* webpackChunkName: "inputDemo" */ '@/views/SelectDemo.vue'),
+      import(/* webpackChunkName: "selectDemo" */ '@/views/SelectDemo.vue'),
+  },
+  {
+    path: '/testPinia',
+    name: 'TestPinia',
+    component: () =>
+      import(
+        /* webpackChunkName: "testPinia" */ '@/views/pinia-demo/TestPinia.vue'
+      ),
   },
 ]
 

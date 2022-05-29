@@ -9,6 +9,8 @@
     <router-link to="/inputDemo">输入框组件</router-link>
     |
     <router-link to="/selectDemo">下拉框组件</router-link>
+    |
+    <router-link to="/testPinia">Pinia Demo</router-link>
   </nav>
   <router-view />
 </template>
