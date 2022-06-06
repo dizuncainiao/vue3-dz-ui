@@ -2,7 +2,7 @@
   <div class="dz-input">
     <input
       ref="input"
-      class="el-input__inner error"
+      class="dz-input__inner error"
       placeholder="请输入"
       :type="type"
       :value="modelValue"
