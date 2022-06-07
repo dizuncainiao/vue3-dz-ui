@@ -33,18 +33,14 @@ export default defineComponent({
       'selectedValue',
     ])
 
-    if (selectedValue.value === value.value) {
-      selectHandler.value({
-        label: label.value,
-        value: value.value,
-      })
-    }
     const clickHandler = () => {
       selectHandler.value({
         label: label.value,
         value: value.value,
       })
     }
+
+    selectedValue.value === value.value && clickHandler()
 
     emitter.on('getSelectedValue', (value) => {
       selectedValue.value = value
