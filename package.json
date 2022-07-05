@@ -33,7 +33,7 @@
       "prettier --write",
       "stylelint --fix"
     ],
-    "*.less": [
+    "*.{css,less,html}": [
       "prettier --write",
       "stylelint --fix"
     ],
@@ -81,6 +81,7 @@
     "postcss-less": "^6.0.0",
     "prettier": "^2.7.1",
     "stylelint": "^14.9.1",
+    "stylelint-config-html": "^1.0.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-recommended-less": "^1.0.4",
