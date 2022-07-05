@@ -5,7 +5,7 @@
       <input
         :checked="modelValue"
         :disabled="disabled"
-        class="dz-checkbox__original"
+        class="dz-checkbox-original"
         type="checkbox"
         @change="changeHandler"
       />
