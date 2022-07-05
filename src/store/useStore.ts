@@ -9,14 +9,14 @@ export const useStore = defineStore('main', {
       // 所有这些属性都会自动推断出它们的类型
       counter: 0,
       name: 'DiZunCaiNiao',
-      isAdmin: true,
+      isAdmin: true
     }
   },
   getters: {
-    doubleCounter: (state) => state.counter * 2,
+    doubleCounter: state => state.counter * 2,
     // 支持传参的 getters
-    prettifyName: (state) => {
+    prettifyName: state => {
       return (prefix: string) => `${prefix} ${state.name}`
-    },
-  },
+    }
+  }
 })

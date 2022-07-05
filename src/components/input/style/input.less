@@ -1,78 +1,76 @@
 .dz-input {
-  width: 260px;
   position: relative;
   display: inline-flex;
+  width: 260px;
 
-  .dz-input__inner {
+  .dz-input-inner {
+    box-sizing: border-box;
     width: 260px;
     height: 40px;
-    padding-left: 16px;
     padding-right: 15px;
-    border-radius: 4px;
-    border: 1px solid #E1E4E8;
+    padding-left: 16px;
     font-size: 14px;
     font-weight: 400;
     color: #242934;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
     outline: none;
-    box-sizing: border-box;
-    transition: .3s ease-in;
+    transition: 0.3s ease-in;
 
     &:focus {
-      border: 1px solid #0056FF;
+      border: 1px solid #0056ff;
     }
 
     &::placeholder {
       font-size: 14px;
       font-weight: 400;
-      color: #9CA6B9;
+      color: #9ca6b9;
     }
 
     &.is-error {
       width: 260px;
       height: 40px;
+      color: #f12525;
+      border: 1px solid #f12525;
       border-radius: 4px;
-      border: 1px solid #F12525;
-      color: #F12525;
     }
 
     &.is-disabled {
-      background: rgba(245, 247, 251, 0.5);
-      border: 1px solid #E1E4E8;
       cursor: not-allowed;
+      background: rgb(245 247 251 / 50%);
+      border: 1px solid #e1e4e8;
     }
 
     &.is-readonly {
-      background: rgba(245, 247, 251, 0.5);
+      background: rgb(245 247 251 / 50%);
     }
 
     &.is-suffix {
-      padding-right: 35px
+      padding-right: 35px;
     }
   }
 
   .suffix {
-    display: grid;
-    place-items: center;
     position: absolute;
-    width: 24px;
-    height: 24px;
     top: 50%;
     right: 12px;
-    transform: translate3d(0, -50%, 0);
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
     font-size: 18px;
-    transition: .3s ease-in-out;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+    transform: translate3d(0, -50%, 0);
+
     &.rotate {
       transform: translate3d(0, -50%, 0) rotate(180deg);
       transform-origin: center center;
     }
   }
-
-  .iconfont {
-  }
 }
 
 //清除搜索框样式
-input[type=search]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
+input[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
 }

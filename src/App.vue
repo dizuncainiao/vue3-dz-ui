@@ -19,11 +19,11 @@
 
 <style>
 #app {
+  margin-top: 60px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: #2c3e50;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 
 #nav {
@@ -32,7 +32,7 @@
 }
 
 .router-link-active {
-  color: #ff8246;
   font-weight: bold;
+  color: #ff8246;
 }
 </style>

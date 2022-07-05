@@ -13,7 +13,7 @@ import type { PropType } from 'vue'
 import type {
   ButtonSize,
   ButtonType,
-  IconType,
+  IconType
 } from '@/components/button/src/interface'
 // import {ComponentOptionsBase} from "@vue/runtime-core"
 
@@ -22,24 +22,24 @@ export default defineComponent({
   props: {
     type: {
       type: String as PropType<ButtonType>,
-      default: 'default',
+      default: 'default'
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     round: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     icon: {
-      type: String as PropType<IconType>,
+      type: String as PropType<IconType>
       // required: true
     },
     size: {
       type: String as PropType<ButtonSize>,
-      default: 'default',
-    },
+      default: 'default'
+    }
   },
   setup(props, { slots }) {
     const { icon } = toRefs(props)
@@ -48,22 +48,22 @@ export default defineComponent({
       `dz-button-${props.type}`,
       props.disabled && 'dz-button-disabled',
       props.round && 'dz-button-round',
-      props.size && `dz-button-size-${props.size}`,
+      props.size && `dz-button-size-${props.size}`
     ])
     const showPropIcon = computed(() => !slots.icon && props.icon)
     const iconClass = computed(() => [
       'iconfont',
-      showPropIcon.value && icon.value,
+      showPropIcon.value && icon.value
     ])
 
     return {
       iconClass,
-      buttonClass,
+      buttonClass
     }
-  },
+  }
 })
 </script>
 
 <style lang="less">
-@import '../style/button';
+@import "../style/button";
 </style>

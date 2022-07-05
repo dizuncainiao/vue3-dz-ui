@@ -5,7 +5,7 @@
       :columns="columns"
       :row-selection="{
         selectedRowKeys: selectedRowKeys,
-        onChange: onSelectChange,
+        onChange: onSelectChange
       }"
       @select-all-change="selectAllChange"
     >
@@ -15,9 +15,9 @@
           <i
             v-if="record.gender === '男'"
             class="icon-nan iconfont"
-            style="color: deepskyblue"
+            style="color: deepskyblue;"
           ></i>
-          <i v-else class="icon-nv iconfont" style="color: deeppink"></i>
+          <i v-else class="icon-nv iconfont" style="color: deeppink;"></i>
         </template>
       </template>
       <template #footer>
@@ -44,14 +44,14 @@ export default defineComponent({
       listData: [
         { name: '张三', age: 20, gender: '男', key: '1' },
         { name: '小红', age: 20, gender: '女', key: '2' },
-        { name: '张三', age: 20, gender: '男', key: '3' },
+        { name: '张三', age: 20, gender: '男', key: '3' }
       ],
       columns: [
         { title: '姓名', dataIndex: 'name' },
         { title: '年龄', dataIndex: 'age' },
-        { title: '性别', dataIndex: 'gender' },
+        { title: '性别', dataIndex: 'gender' }
       ],
-      selectedRowKeys: ['1'],
+      selectedRowKeys: ['1']
     })
 
     function onSelectChange(
@@ -66,9 +66,9 @@ export default defineComponent({
       onSelectChange,
       selectAllChange: (val: boolean) => {
         console.log('全选状态是：', val)
-      },
+      }
     }
-  },
+  }
 })
 </script>
 
@@ -81,10 +81,10 @@ export default defineComponent({
 }
 
 .list-footer {
-  height: 80px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  height: 80px;
   padding-right: 20px;
 }
 </style>

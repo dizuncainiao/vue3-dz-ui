@@ -30,14 +30,14 @@ console.log(store)
 
 <script lang="ts">
 export default {
-  name: 'TestPinia',
+  name: 'TestPinia'
 }
 </script>
 
 <style lang="less">
 .pinia-box {
-  margin: 20px;
   padding: 20px;
+  margin: 20px;
   border: 2px dashed lightpink;
 }
 </style>

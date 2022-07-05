@@ -16,8 +16,6 @@ export default defineComponent({
     const checked = ref(true)
 
     return { checked }
-  },
+  }
 })
 </script>
-
-<style scoped></style>

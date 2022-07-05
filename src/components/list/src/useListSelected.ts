@@ -3,7 +3,7 @@ import type { RowKey, RowSelection, TableData } from './interface'
 
 export function useSetSelectedProp(rows: TableData, selectedKeys: RowKey[]) {
   watchEffect(() => {
-    rows.forEach((row) => (row.selected = selectedKeys.includes(row.key)))
+    rows.forEach(row => (row.selected = selectedKeys.includes(row.key)))
   })
 }
 
@@ -14,24 +14,22 @@ export function useListSelected(
 ) {
   const selectedAll = ref(false)
 
-  const selectedRows = computed(() => data.filter((row) => row.selected))
+  const selectedRows = computed(() => data.filter(row => row.selected))
 
-  const selectedRowKeys = computed(() =>
-    selectedRows.value.map((row) => row.key)
-  )
+  const selectedRowKeys = computed(() => selectedRows.value.map(row => row.key))
 
   rowSelection &&
     useSetSelectedProp(data, (rowSelection as RowSelection).selectedRowKeys)
 
   watchEffect(() => {
-    selectedAll.value = data.filter((row) => !row.selected).length === 0
+    selectedAll.value = data.filter(row => !row.selected).length === 0
   })
 
   function selectAllChange(val: boolean): void {
     if (val) {
-      data.forEach((row) => (row.selected = true))
+      data.forEach(row => (row.selected = true))
     } else {
-      data.forEach((row) => (row.selected = false))
+      data.forEach(row => (row.selected = false))
     }
     rowSelection?.onChange(selectedRowKeys.value, selectedRows.value)
     emit('selectAllChange', val)
@@ -39,6 +37,6 @@ export function useListSelected(
 
   return {
     selectedAll,
-    selectAllChange,
+    selectAllChange
   }
 }

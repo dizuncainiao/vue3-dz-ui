@@ -2,7 +2,7 @@
   <div class="dz-input">
     <input
       ref="input"
-      class="dz-input__inner error"
+      class="dz-input-inner error"
       placeholder="请输入"
       :type="type"
       :value="modelValue"
@@ -32,29 +32,29 @@ export default defineComponent({
   props: {
     modelValue: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     },
     readonly: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     type: {
       type: String as PropType<InputType>,
-      default: 'text',
+      default: 'text'
     },
     isError: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     // 是否用在 Select 组件中
     isSelect: {
       type: Boolean as PropType<boolean>,
-      default: false,
-    },
+      default: false
+    }
   },
   emits: ['update:modelValue', 'change', 'focus', 'blur'],
   setup(props, { emit, expose, slots }) {
@@ -69,13 +69,13 @@ export default defineComponent({
       isError.value && 'is-error',
       isSearch.value && 'is-suffix',
       isSelect.value && 'is-select',
-      slots.suffix && 'is-suffix',
+      slots.suffix && 'is-suffix'
     ])
 
     const suffixClass = computed(() => [
       'suffix',
       isSelect.value && 'no-event',
-      hasRotate.value && 'rotate',
+      hasRotate.value && 'rotate'
     ])
 
     function changeHandler(e: Event): void {
@@ -113,12 +113,12 @@ export default defineComponent({
       changeHandler,
       focusHandler,
       blurHandler,
-      query,
+      query
     }
-  },
+  }
 })
 </script>
 
 <style lang="less">
-@import '../style/input';
+@import "../style/input";
 </style>

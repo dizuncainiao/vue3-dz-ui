@@ -19,36 +19,34 @@ export default defineComponent({
   props: {
     label: {
       type: String as PropType<OptionsItem['label']>,
-      default: '',
+      default: ''
     },
     value: {
       type: String as PropType<OptionsItem['value']>,
-      default: '',
-    },
+      default: ''
+    }
   },
   setup(props) {
     const { label, value } = toRefs(props)
     const { selectHandler, selectedValue } = injectMore([
       'selectHandler',
-      'selectedValue',
+      'selectedValue'
     ])
 
     const clickHandler = () => {
       selectHandler.value({
         label: label.value,
-        value: value.value,
+        value: value.value
       })
     }
 
     selectedValue.value === value.value && clickHandler()
 
-    emitter.on('getSelectedValue', (value) => {
+    emitter.on('getSelectedValue', value => {
       selectedValue.value = value
     })
 
     return { clickHandler, selectedValue }
-  },
+  }
 })
 </script>
-
-<style scoped></style>

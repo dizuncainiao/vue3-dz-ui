@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
 import { reactive, toRefs, unref } from 'vue'
-import HelloTest from '../../test/Hello.vue'
+import HelloTest from '../../test/HelloTest.vue'
 import type { Ref } from 'vue'
 import type { ButtonSize, ButtonType } from '@/components/button/src/interface'
 import DzButton from '@/components/button/src/button.vue'
@@ -61,7 +61,7 @@ const btnConfig = reactive<BtnConfig>({
   size: 'default',
   type: 'primary',
   round: true,
-  disabled: false,
+  disabled: false
 })
 const configAsRefs = toRefs(btnConfig)
 
@@ -84,7 +84,7 @@ const setHandler = {
       unref(type) === 'primary' ? 'default' : 'primary'
     ),
   round: () => setValue<boolean, boolean>(round, !unref(round)),
-  disabled: () => setValue<boolean, boolean>(disabled, !unref(disabled)),
+  disabled: () => setValue<boolean, boolean>(disabled, !unref(disabled))
 }
 
 function setConfig(type: ArgType) {
@@ -98,16 +98,16 @@ function btnHandler() {
 
 <style>
 .box {
-  width: 500px;
-  margin: 50px auto;
   display: flex;
   justify-content: space-between;
+  width: 500px;
+  margin: 50px auto;
 }
 
 .button-box {
-  width: 420px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  width: 420px;
+  margin: 0 auto;
 }
 </style>

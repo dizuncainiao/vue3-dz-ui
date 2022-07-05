@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils'
-import Hello from './Hello.vue'
+import Hello from './HelloTest.vue'
 
 test('mount component', async () => {
   expect(Hello).toBeTruthy()
 
   const wrapper = mount(Hello, {
     props: {
-      count: 4,
-    },
+      count: 4
+    }
   })
 
   expect(wrapper.text()).toContain('4 x 2 = 8')
