@@ -15,3 +15,5 @@
 - [ ] Message 组件
 - [ ] Pagination 组件
 - [ ] Dropdown 组件
+
+起步请参考 [vite-vue3-basic-template](https://github.com/dizuncainiao/vite-vue3-basic-template)
