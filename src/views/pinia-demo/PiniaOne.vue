@@ -9,7 +9,7 @@
     doubleCounter: ${doubleCounter}`
     }}
     <br />
-    <label style="display: inline-flex; align-items: center"
+    <label style="display: inline-flex; align-items: center;"
       >是否是管理员：
       <dz-checkbox v-model="isAdmin" />
     </label>
@@ -27,8 +27,6 @@ const { counter, name, isAdmin, doubleCounter } = storeToRefs(store)
 
 <script lang="ts">
 export default {
-  name: 'PiniaOne',
+  name: 'PiniaOne'
 }
 </script>
-
-<style scoped></style>

@@ -1,20 +1,20 @@
 button {
-  border: 0;
   background-color: transparent;
+  border: 0;
   outline: none;
 }
 
 .dz-button {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 20px;
-  border-radius: 4px;
-  box-sizing: border-box;
-  cursor: pointer;
   font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
   border: 1px solid transparent; // fixme
-  transition: .3s;
+  border-radius: 4px;
+  transition: 0.3s;
 
   .iconfont {
     padding-left: 10px;
@@ -22,37 +22,36 @@ button {
 }
 
 .dz-button-default {
-  border-color: #E1E4E8;
-  color: #646B7A;
+  color: #646b7a;
+  border-color: #e1e4e8;
 
   &:hover {
-    background: #F5F7FB;
-    border-color: #E1E4E8;
+    background: #f5f7fb;
+    border-color: #e1e4e8;
   }
 
   &:active {
-    background: #F5F7FB !important;
-    border-color: #BCC4D6;
+    background: #f5f7fb !important;
+    border-color: #bcc4d6;
   }
 }
 
 .dz-button-primary {
-  background: #0056FF;
-  color: #FFFFFF;
-
+  color: #fff;
+  background: #0056ff;
 
   &:hover {
-    background: #004DE5;
+    background: #004de5;
   }
 
   &:active {
-    background: #0046D0 !important;
+    background: #0046d0 !important;
   }
 }
 
 .dz-button-disabled {
-  opacity: .4;
   cursor: not-allowed;
+  opacity: 0.4;
 }
 
 .dz-button-round {

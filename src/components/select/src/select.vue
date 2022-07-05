@@ -21,7 +21,7 @@
               :key="index"
               :class="[
                 item.value === $props.modelValue && 'selected',
-                'dz-select-option',
+                'dz-select-option'
               ]"
               @click="selectHandler(item)"
             >
@@ -43,7 +43,7 @@ import {
   reactive,
   ref,
   toRefs,
-  watch,
+  watch
 } from 'vue'
 import { getLabel } from './interface'
 import type { PropType } from 'vue'
@@ -58,22 +58,22 @@ export default defineComponent({
   props: {
     modelValue: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     options: {
       type: Array as PropType<Options>,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   emits: ['update:modelValue', 'change', 'focus', 'blur', 'visible-change'],
   setup(props, { emit }) {
     const state = reactive({
       label: getLabel(props.options, props.modelValue) || '',
-      visible: false,
+      visible: false
     })
     const input = ref(null)
     const hiddenDropdown = () => (state.visible = false)
@@ -84,7 +84,7 @@ export default defineComponent({
 
     watch(
       () => state.visible,
-      (visible) => {
+      visible => {
         emit('visible-change', visible)
         ;(input.value as any).setRotate(state.visible)
       }
@@ -110,7 +110,7 @@ export default defineComponent({
 
     provideMore({
       selectHandler,
-      selectedValue: props.modelValue,
+      selectedValue: props.modelValue
     })
 
     return {
@@ -119,12 +119,12 @@ export default defineComponent({
       blurHandler,
       focusHandler,
       showDropdown,
-      selectHandler,
+      selectHandler
     }
-  },
+  }
 })
 </script>
 
 <style lang="less">
-@import '../style/select.less';
+@import "../style/select.less";
 </style>

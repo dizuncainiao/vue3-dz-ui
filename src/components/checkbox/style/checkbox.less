@@ -5,34 +5,33 @@
   height: 40px;
   user-select: none;
 
-
   &.is-checked {
-
-    .dz-checkbox__inner {
-      background: #0056FF;
-      border-color: #0056FF;
+    .dz-checkbox-inner {
+      background: #0056ff;
+      border-color: #0056ff;
 
       &::before {
-        transform: translate(-50%, -50%) scale3d(.7, .7, .7);
+        transform: translate(-50%, -50%) scale3d(0.7, 0.7, 0.7);
       }
     }
 
-    .dz-checkbox__label {
-      color: #0056FF;
+    .dz-checkbox-label {
+      color: #0056ff;
     }
   }
 
   &.is-disabled {
-    opacity: .5;
+    opacity: 0.5;
 
-    .dz-checkbox__input, .dz-checkbox__label {
+    .dz-checkbox-input,
+    .dz-checkbox-label {
       cursor: not-allowed;
     }
   }
 
   &__input {
-    display: inline-flex;
     position: relative;
+    display: inline-flex;
     white-space: nowrap;
     cursor: pointer;
   }
@@ -42,39 +41,39 @@
     display: inline-block;
     width: 16px;
     height: 16px;
-    background: #FFFFFF;
-    border-radius: 2px;
-    border: 1px solid #9CA6B9;
-    transition: .3s;
     color: #fff;
+    background: #fff;
+    border: 1px solid #9ca6b9;
+    border-radius: 2px;
+    transition: 0.3s;
 
     &:hover {
-      border-color: #0056FF;
+      border-color: #0056ff;
     }
 
     &::before {
       position: absolute;
       top: 50%;
       left: 50%;
+      transition: 0.3s;
       transform: translate(-50%, -50%) scale3d(0, 0, 0);
-      transition: .3s;
     }
   }
 
   &__original {
-    opacity: 0;
-    outline: none;
     position: absolute;
-    margin: 0;
+    z-index: -1;
     width: 0;
     height: 0;
-    z-index: -1;
+    margin: 0;
+    outline: none;
+    opacity: 0;
   }
 
   &__label {
     display: inline-block;
     padding-left: 8px;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
   }
 }

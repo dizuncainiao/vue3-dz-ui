@@ -7,37 +7,37 @@ import 'nprogress/nprogress.css'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/testPinia',
+    redirect: '/testPinia'
   },
   {
     path: '/buttonDemo',
     name: 'ButtonDemo',
     component: () =>
-      import(/* webpackChunkName: "buttonDemo" */ '@/views/ButtonDemo.vue'),
+      import(/* webpackChunkName: "buttonDemo" */ '@/views/ButtonDemo.vue')
   },
   {
     path: '/checkboxDemo',
     name: 'CheckboxDemo',
     component: () =>
-      import(/* webpackChunkName: "checkboxDemo" */ '@/views/CheckboxDemo.vue'),
+      import(/* webpackChunkName: "checkboxDemo" */ '@/views/CheckboxDemo.vue')
   },
   {
     path: '/listDemo',
     name: 'ListDemo',
     component: () =>
-      import(/* webpackChunkName: "listDemo" */ '@/views/ListDemo.vue'),
+      import(/* webpackChunkName: "listDemo" */ '@/views/ListDemo.vue')
   },
   {
     path: '/inputDemo',
     name: 'InputDemo',
     component: () =>
-      import(/* webpackChunkName: "inputDemo" */ '@/views/InputDemo.vue'),
+      import(/* webpackChunkName: "inputDemo" */ '@/views/InputDemo.vue')
   },
   {
     path: '/selectDemo',
     name: 'SelectDemo',
     component: () =>
-      import(/* webpackChunkName: "selectDemo" */ '@/views/SelectDemo.vue'),
+      import(/* webpackChunkName: "selectDemo" */ '@/views/SelectDemo.vue')
   },
   {
     path: '/testPinia',
@@ -45,13 +45,13 @@ const routes: Array<RouteRecordRaw> = [
     component: () =>
       import(
         /* webpackChunkName: "testPinia" */ '@/views/pinia-demo/TestPinia.vue'
-      ),
-  },
+      )
+  }
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
+  routes
 })
 
 router.beforeEach(() => {

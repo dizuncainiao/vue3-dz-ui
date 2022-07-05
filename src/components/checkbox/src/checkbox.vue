@@ -1,7 +1,7 @@
 <template>
   <label class="dz-checkbox" :class="checkboxClass">
-    <span class="dz-checkbox__input">
-      <span class="dz-checkbox__inner iconfont icon-duihao"></span>
+    <span class="dz-checkbox-input">
+      <span class="dz-checkbox-inner iconfont icon-duihao"></span>
       <input
         :checked="modelValue"
         :disabled="disabled"
@@ -10,7 +10,7 @@
         @change="changeHandler"
       />
     </span>
-    <span v-if="$slots.default || label" class="dz-checkbox__label">
+    <span v-if="$slots.default || label" class="dz-checkbox-label">
       <slot></slot>
       <template v-if="!$slots.default">{{ label }}</template>
     </span>
@@ -25,16 +25,16 @@ export default defineComponent({
   name: 'DzCheckbox',
   props: {
     label: {
-      type: String as PropType<string>,
+      type: String as PropType<string>
     },
     modelValue: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: false,
-    },
+      default: false
+    }
   },
   emits: ['update:modelValue', 'change'],
   setup(props, { emit }) {
@@ -42,7 +42,7 @@ export default defineComponent({
 
     const checkboxClass = computed(() => [
       modelValue.value && 'is-checked',
-      disabled.value && 'is-disabled',
+      disabled.value && 'is-disabled'
     ])
 
     function changeHandler(e: Event) {
@@ -52,12 +52,12 @@ export default defineComponent({
 
     return {
       changeHandler,
-      checkboxClass,
+      checkboxClass
     }
-  },
+  }
 })
 </script>
 
 <style lang="less">
-@import '../style/checkbox';
+@import "../style/checkbox";
 </style>

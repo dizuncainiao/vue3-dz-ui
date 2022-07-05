@@ -6,7 +6,7 @@
   .dz-input {
     width: 100%;
 
-    .dz-input__inner {
+    .dz-input-inner {
       width: 100%;
 
       &.is-readonly {
@@ -18,15 +18,15 @@
 
   &-dropdown {
     position: absolute;
-    z-index: 1;
-    left: 0;
     top: calc(100% + 8px);
+    left: 0;
+    z-index: 1;
     width: 100%;
     max-height: 224px;
     overflow-y: auto;
-    background: #ffffff;
-    box-shadow: 0 8px 40px 0 rgba(100, 107, 122, 0.15);
+    background: #fff;
     border-radius: 4px;
+    box-shadow: 0 8px 40px 0 rgb(100 107 122 / 15%);
 
     //background: #EDF1F6;
     //border-radius: 2px;
@@ -54,24 +54,24 @@
     }
 
     &-list {
-      margin: 0;
-      padding: 20px 0;
-      list-style: none;
       box-sizing: border-box;
+      padding: 20px 0;
+      margin: 0;
+      list-style: none;
 
       .dz-select-option {
         padding: 0 24px;
-        line-height: 40px;
         font-size: 14px;
+        line-height: 40px;
         cursor: pointer;
 
         &:hover {
-          background: rgba(0, 86, 255, 0.03);
+          background: rgb(0 86 255 / 3%);
         }
 
         &.selected {
-          background: rgba(0, 86, 255, 0.03);
           color: #0056ff;
+          background: rgb(0 86 255 / 3%);
         }
       }
     }

@@ -8,7 +8,7 @@ import type { App } from 'vue'
 const components = [button, checkbox, list, input, select, Option]
 
 const install = (app: App) => {
-  components.forEach((component) => app.component(component.name, component))
+  components.forEach(component => app.component(component.name, component))
 }
 
 export default install

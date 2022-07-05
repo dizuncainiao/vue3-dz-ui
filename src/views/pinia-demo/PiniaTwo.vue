@@ -9,12 +9,12 @@
     doubleCounter: ${doubleCounter}`
     }}
     <br />
-    <label style="display: inline-flex; align-items: center"
+    <label style="display: inline-flex; align-items: center;"
       >管理员姓名：
       <dz-input v-model="name" />
     </label>
     <br />
-    <label style="display: inline-flex; align-items: center"
+    <label style="display: inline-flex; align-items: center;"
       >名字前缀：
       <dz-input v-model="prefix" />
       {{ prettifyName(prefix) }}
@@ -36,8 +36,6 @@ const { counter, name, isAdmin, doubleCounter, prettifyName } =
 
 <script lang="ts">
 export default {
-  name: 'PiniaTwo',
+  name: 'PiniaTwo'
 }
 </script>
-
-<style scoped></style>

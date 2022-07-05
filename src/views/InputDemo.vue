@@ -55,8 +55,6 @@ export default defineComponent({
     }
 
     return { msg, changeHandler }
-  },
+  }
 })
 </script>
-
-<style scoped></style>

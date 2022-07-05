@@ -58,16 +58,16 @@ export default defineComponent({
   props: {
     data: {
       type: Array as PropType<TableData>,
-      required: true,
+      required: true
     },
     columns: {
       type: Array as PropType<Columns>,
-      required: true,
+      required: true
     },
     rowSelection: {
       type: Object as PropType<RowSelection>,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
   emits: ['selectAllChange'],
   setup(props, { emit }: SetupContext) {
@@ -87,12 +87,12 @@ export default defineComponent({
       selectAllChange,
       showFocusMask,
       enterHandler,
-      leaveHandler,
+      leaveHandler
     }
-  },
+  }
 })
 </script>
 
 <style lang="less">
-@import '../style/list';
+@import "../style/list";
 </style>

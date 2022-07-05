@@ -36,7 +36,7 @@ export default defineComponent({
       { value: '3', label: '选项三' },
       { value: '4', label: '选项四' },
       { value: '5', label: '选项五' },
-      { value: '6', label: '选项六' },
+      { value: '6', label: '选项六' }
     ])
 
     const visible = ref(false)
@@ -50,10 +50,8 @@ export default defineComponent({
       selected,
       selected2,
       options,
-      getVisible,
+      getVisible
     }
-  },
+  }
 })
 </script>
-
-<style scoped></style>
